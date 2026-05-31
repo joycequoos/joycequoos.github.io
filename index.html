@@ -1,281 +1,334 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Portfólio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyce • Data Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0812;
+  --bg2:#110e1c;
+  --purple:#7c3aed;
+  --purple-light:#a78bfa;
+  --rose:#f43f5e;
+  --gold:#c9a96e;
+  --gold-light:#e8c99a;
+  --white:#f8f4ff;
+  --gray:#9d90b8;
+  --card:#16112a;
+  --border:rgba(167,139,250,0.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
 
-		<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,8,18,0.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;background:linear-gradient(135deg,var(--gold-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;transition:.3s}
+.nav-links a:hover{color:var(--gold-light)}
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="container">
-					<li><a href="#top"></a></li>
-					<li><a href="#portfolio">Trilha de Estudos</a></li>
-					<li><a href="#projetos">Projetos</a></li>
-					<li><a href="#contact">Redes sociais.</a></li>
-				</ul>
-			</nav>
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:0 48px}
+canvas#particles{position:absolute;inset:0;width:100%;height:100%}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:700px}
+.hero-tag{display:inline-block;border:1px solid var(--border);padding:6px 18px;border-radius:999px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:28px;background:rgba(124,58,237,.08)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);line-height:1.1;margin-bottom:20px}
+.hero-title span{background:linear-gradient(135deg,var(--gold-light) 0%,var(--purple-light) 60%,var(--rose) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:40px;font-weight:300}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:13px 32px;border-radius:50px;font-size:.88rem;letter-spacing:.06em;cursor:pointer;transition:.3s;text-decoration:none;font-weight:500}
+.btn-primary{background:linear-gradient(135deg,var(--purple),var(--rose));color:#fff;border:none;box-shadow:0 0 30px rgba(124,58,237,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(124,58,237,.55)}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--gold-light)}
+.btn-outline:hover{background:rgba(167,139,250,.08);border-color:var(--purple-light)}
 
+/* SECTION GENERIC */
+section{padding:100px 48px;max-width:1100px;margin:0 auto}
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.section-label::before{content:'';width:32px;height:1px;background:var(--gold)}
+.section-label span{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:48px}
+.section-title em{font-style:normal;background:linear-gradient(135deg,var(--gold-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:0}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 16px;text-align:center;transition:.3s;cursor:default}
+.skill-card:hover{border-color:var(--purple-light);transform:translateY(-4px);box-shadow:0 8px 32px rgba(124,58,237,.2)}
+.skill-icon{font-size:2rem;margin-bottom:10px}
+.skill-name{font-size:.82rem;color:var(--gray);letter-spacing:.06em}
 
-		<!-- Banner YouTube -->
-      <article class="wrapper style2"
-        style="
-          background: linear-gradient(to right, #020b2a 0%, #000000 100%);
-          padding-top: 0;
-          padding-bottom: 0;
-          ">
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.35s;position:relative}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(244,63,94,.04));opacity:0;transition:.35s}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(167,139,250,.35);box-shadow:0 16px 48px rgba(124,58,237,.18)}
+.proj-card:hover::before{opacity:1}
+.proj-img{width:100%;height:160px;object-fit:cover;filter:saturate(.7)}
+.proj-card:hover .proj-img{filter:saturate(1)}
+.proj-body{padding:24px}
+.proj-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px}
+.proj-title{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:10px}
+.proj-desc{color:var(--gray);font-size:.84rem;line-height:1.75;margin-bottom:20px}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gold-light);text-decoration:none;letter-spacing:.06em;transition:.2s}
+.proj-link:hover{color:var(--purple-light)}
+.proj-link svg{width:14px;height:14px}
 
-      <div class="container" style="padding-top: 0;">
-        <span class="image fit" style="margin-top: 0; margin-bottom: 0;">
-        <img
-           src="https://raw.githubusercontent.com/JosiTubaroski/JosiTubaroski.github.io/main/images/full_stack.png"
-           alt="Banner"
-           style="display: block;"
-         />
-       </span>
+/* ABOUT */
+#about-sec{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-visual{position:relative}
+.about-blob{width:100%;max-width:380px;height:380px;background:radial-gradient(ellipse at 40% 40%,rgba(124,58,237,.3),transparent 70%),radial-gradient(ellipse at 70% 70%,rgba(244,63,94,.2),transparent 60%);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
+.about-initials{font-family:'Playfair Display',serif;font-size:6rem;background:linear-gradient(135deg,var(--gold-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.about-text p{color:var(--gray);line-height:1.9;font-size:.95rem;margin-bottom:16px}
+.about-stats{display:flex;gap:40px;margin-top:32px}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;background:linear-gradient(135deg,var(--gold-light),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.75rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase}
+
+/* CONTACT */
+.contact-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:56px;text-align:center;background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(244,63,94,.05))}
+.contact-box h3{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px}
+.contact-box p{color:var(--gray);margin-bottom:36px;font-size:.95rem}
+.social-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.soc-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:50px;border:1px solid var(--border);color:var(--white);text-decoration:none;font-size:.85rem;transition:.3s;background:rgba(255,255,255,.03)}
+.soc-btn:hover{border-color:var(--purple-light);background:rgba(124,58,237,.12);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{text-align:center;padding:32px;color:var(--gray);font-size:.8rem;border-top:1px solid var(--border)}
+
+/* DIVIDER */
+.line-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Joyce Q. Tubaroski</div>
+  <ul class="nav-links">
+    <li><a href="#trilha">Trilha</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Data Analyst & Developer</div>
+    <h1 class="hero-title">Transformando <span>dados em decisões</span> inteligentes</h1>
+    <p class="hero-sub">Especialista em análise de dados com foco em SQL, Python e Power BI.<br>Explorando padrões que revelam o extraordinário no cotidiano.</p>
+    <div class="btn-group">
+      <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+      <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+    </div>
+  </div>
+</div>
+
+<div class="line-divider"></div>
+
+<!-- SKILLS -->
+<section id="trilha">
+  <div class="section-label"><span>Trilha de Estudos</span></div>
+  <h2 class="section-title">Tecnologias & <em>Ferramentas</em></h2>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">SQL Server</div></div>
+    <div class="skill-card"><div class="skill-icon">🔄</div><div class="skill-name">ETL / SSIS</div></div>
+    <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div>
+    <div class="skill-card"><div class="skill-icon">🐼</div><div class="skill-name">Pandas / NumPy</div></div>
+    <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">Matplotlib</div></div>
+    <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Power BI</div></div>
+    <div class="skill-card"><div class="skill-icon">📓</div><div class="skill-name">Jupyter</div></div>
+    <div class="skill-card"><div class="skill-icon">🔐</div><div class="skill-name">Stored Procedures</div></div>
+  </div>
+</section>
+
+<div class="line-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projetos">
+  <div class="section-label"><span>Portfólio</span></div>
+  <h2 class="section-title">Projetos em <em>Destaque</em></h2>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/ETL.png" alt="ETL">
+      <div class="proj-body">
+        <div class="proj-tag">SQL • ETL</div>
+        <h3 class="proj-title">ETL Integration Services</h3>
+        <p class="proj-desc">Pipeline de extração, transformação e carga de dados para consolidação e limpeza de grandes volumes de informação.</p>
+        <a class="proj-link" href="https://github.com/joycequoos/ETL_Integration_Service/tree/main" target="_blank">
+          Ver no GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
       </div>
+    </div>
 
-     </article>
+    <div class="proj-card">
+      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/SQL_FundoBranco.png" alt="SQL">
+      <div class="proj-body">
+        <div class="proj-tag">SQL Server</div>
+        <h3 class="proj-title">Stored Procedures Avançadas</h3>
+        <p class="proj-desc">Desenvolvimento de procedures para reutilização de código, otimização de desempenho e controle de acesso a dados.</p>
+        <a class="proj-link" href="https://github.com/joycequoos/SQL-Server-Developer_ProgramacaoTotalStoredProcedure" target="_blank">
+          Ver no GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
 
+    <div class="proj-card">
+      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230619_2/Jupyter_Fundo_Branco_Contorno.png" alt="Python">
+      <div class="proj-body">
+        <div class="proj-tag">Python • Jupyter</div>
+        <h3 class="proj-title">Exercícios com Pandas & NumPy</h3>
+        <p class="proj-desc">Manipulação e transformação de dados com as principais bibliotecas científicas do ecossistema Python.</p>
+        <a class="proj-link" href="https://github.com/joycequoos/Jupyter-exercises" target="_blank">
+          Ver no GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
 
-		<!-- Portfolio -->
-			<article id="portfolio" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>Bem-vindo(a) à Trilha de Estudos em Dados!</h2>
-						<p>Nessa trilha compartilho os meus estudos na área de Dados.</p>
-						<p>Nos dias de hoje, os dados são considerados um recurso valioso em quase todos os setores e indústrias.</p>
-						
-					</header>
-					<div class="row">
+    <div class="proj-card">
+      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/DataVIsualization_2.png" alt="Relatórios">
+      <div class="proj-body">
+        <div class="proj-tag">Matplotlib • Seaborn</div>
+        <h3 class="proj-title">Visualização de Dados</h3>
+        <p class="proj-desc">Relatórios visuais com gráficos estatísticos, heatmaps e dashboards analíticos usando Matplotlib e Seaborn.</p>
+        <a class="proj-link" href="https://github.com/joycequoos/Jupyter_Relatorios" target="_blank">
+          Ver no GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
 
-						<style>
-                                               .alinhado-esquerda {
-                                                 text-align: left;}
-                                                </style>
+    <div class="proj-card">
+      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230801/PowerBI.png" alt="Power BI">
+      <div class="proj-body">
+        <div class="proj-tag">Power BI</div>
+        <h3 class="proj-title">Dashboards Interativos</h3>
+        <p class="proj-desc">Painéis de Business Intelligence com conexão a múltiplas fontes, modelagem de dados e medidas calculadas.</p>
+        <a class="proj-link" href="https://sites.google.com/fato-ti.com.br/portifolio/in%C3%ADcio?authuser=1" target="_blank">
+          Ver Projeto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
 
+    <div class="proj-card">
+      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/Projeto_Dados.png" alt="Análise">
+      <div class="proj-body">
+        <div class="proj-tag">Análise de Dados • PLD</div>
+        <h3 class="proj-title">Prevenção à Lavagem de Dinheiro</h3>
+        <p class="proj-desc">Análise de transações financeiras para identificação de padrões suspeitos usando ETL, SQL e Python.</p>
+        <a class="proj-link" href="https://joycequoos.github.io/Rastreamento_prevencao_Lavagem_Dinheiro_rlt2.html" target="_blank">
+          Ver Relatório
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
 
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://github.com/joycequoos/ETL_Integration_Service/tree/main" class="image featured"><img src="images/Projetos/20230620/ETL.png" alt="" /></a>
-								<h3><a href="https://github.com/joycequoos/ETL_Integration_Service/tree/main">SQL - ETL Integration Services</a></h3>
-								<p class="alinhado-esquerda">ETL (Extract, Transform, Load), segue abaixo algumas maneiras que ETL auxilia na Analise de Dados</p>
-								<p class="alinhado-esquerda">1 - Consolidação de dados.</p>
-								<p class="alinhado-esquerda">2 - Limpeza e transformação de dados.</p>
-								<p class="alinhado-esquerda">3 - Integração de dados.</p>
-								<p class="alinhado-esquerda">4 - Agregação e cálculos.</p>
-								<p class="alinhado-esquerda">5 - Preparação de dados para análise.</p>
-								
-								<p class="small-font">ETL</p>
-							</article>
-						</div>
+  </div>
+</section>
 
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://github.com/joycequoos/SQL-Server-Developer_ProgramacaoTotalStoredProcedure" class="image featured"><img src="images/Projetos/20230620/SQL_FundoBranco.png" alt="" /></a>
-								<h3><a href="https://github.com/joycequoos/SQL-Server-Developer_ProgramacaoTotalStoredProcedure">SQL Server Programação com Stored Procedure</a></h3>
-								<p class="alinhado-esquerda">Procedures podem ser muito úteis no processo de análise de dados por vários motivos:</p>
-								<p class="alinhado-esquerda">1 - Reutilização de código.</p>
-								<p class="alinhado-esquerda">2 - Simplificação do código.</p>
-								<p class="alinhado-esquerda">3 - Otimização de desempenho.</p>
-								<p class="alinhado-esquerda">4 - Controle de acesso e segurança.</p>
-								<p class="alinhado-esquerda">5 - Agendamento de Tarefas.</p>
-								<p class="small-font">SQL</p>
-							</article>
-						</div>
+<div class="line-divider"></div>
 
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://github.com/joycequoos/Jupyter-exercises" class="image featured"><img src="images/Projetos/20230619_2/Jupyter_Fundo_Branco_Contorno.png" alt="" /></a>
-								<h3><a href="https://github.com/joycequoos/Jupyter-exercises">Exercicios em Phyton com Jupyter</a></h3>
-								<p class="alinhado-esquerda">Python é uma das linguagens de programação mais populares para análise de dados devido à sua ampla variedade de bibliotecas.</p>
-								<p class="alinhado-esquerda">1 - Manipulação de dados: Python possui bibliotecas poderosas, como pandas, que facilitam
-								a manipulação e transformação de dados. Elas oferecem estruturas de dados flexíveis 
-								para trabalhar com tabelas e séries temporais, funções eficientes para filtrar, agrupar, agregar e processar.</p>
-								
-								<p class="small-font">Python (Pandas, Numpy)</p>
-							</article>
-						</div>
+<!-- ABOUT -->
+<section id="sobre">
+  <div id="about-sec">
+    <div class="about-visual">
+      <div class="about-blob"><div class="about-initials">Joyce.</div></div>
+    </div>
+    <div class="about-text">
+      <div class="section-label"><span>Sobre</span></div>
+      <h2 class="section-title" style="margin-bottom:24px">Quem sou <em>eu</em></h2>
+      <p>Profissional apaixonada por dados, com trilha de estudos focada em transformar informações brutas em insights estratégicos para negócios.</p>
+      <p>Combino habilidades técnicas em SQL, Python e Power BI com uma visão analítica apurada para identificar padrões e tendências que geram valor real.</p>
+      <div class="about-stats">
+        <div><div class="stat-num">6+</div><div class="stat-label">Projetos</div></div>
+        <div><div class="stat-num">3+</div><div class="stat-label">Tecnologias</div></div>
+        <div><div class="stat-num">∞</div><div class="stat-label">Curiosidade</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://github.com/joycequoos/Jupyter_Relatorios_Matplotlib" class="image featured"><img src="images/Projetos/20230620/DataVIsualization_2.png" alt="" /></a>
-								<h3><a href="https://github.com/joycequoos/Jupyter_Relatorios">Relatórios</a></h3>
-								<p class="alinhado-esquerda">As bibliotecas do Python desempenham um papel fundamental na visualização de dados.</p>
-								<p class="alinhado-esquerda">1 - Matplotlib: Ela fornece uma variedade de estilos de gráficos, como gráficos de linhas, barras, dispersão, histogramas,
-								Com o Matplotlib, você pode personalizar praticamente todos os aspectos de um gráfico.</p>
-								<p class="alinhado-esquerda">2 - Seaborn: O Seaborn simplifica a criação de gráficos estatísticos complexos, como gráficos de distribuição,
-								boxplots, heatmaps, pair plots, entre outros.</p>
-								<p class="small-font">Python(Matplotlib,Seaborn)</p>
-							</article>
-                                               </div>    
+<div class="line-divider"></div>
 
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://sites.google.com/fato-ti.com.br/portifolio/in%C3%ADcio?authuser=1" class="image featured"><img src="images/Projetos/20230801/PowerBI.png" alt="" /></a>
-								<h3><a href="https://sites.google.com/fato-ti.com.br/portifolio/in%C3%ADcio?authuser=1">Power BI</a></h3>
-								<p class="alinhado-esquerda">O Power BI é uma poderosa ferramenta de Business Intelligence (BI) desenvolvida pela Microsoft que permite a criação de painéis interativos.</p>
-								<p class="alinhado-esquerda">1 - Conexão com várias fontes de dados: O Power BI suporta a importação de dados de várias fontes, como bancos de dados, arquivos Excel, serviços web, entre outros. </p>
-								<p class="alinhado-esquerda">2 - Modelagem de dados: O Power BI oferece ferramentas para transformar e modelar os dados, permitindo criar relacionamentos entre tabelas e criar medidas e colunas calculadas.</p>
-								<p class="small-font">Power BI</p>
-							</article>
-                                               </div>    
+<!-- CONTACT -->
+<section id="contato">
+  <div class="contact-box">
+    <h3>Vamos <em style="font-style:normal;background:linear-gradient(135deg,#e8c99a,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">conversar?</em></h3>
+    <p>Aberta a oportunidades, colaborações e novas conexões.</p>
+    <div class="social-links">
+      <a class="soc-btn" href="https://www.linkedin.com/in/joycequoos/" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="soc-btn" href="https://github.com/joycequoos" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
 
+<footer>
+  <p>✦ Feito com elegância & dados • Joyce © 2025</p>
+</footer>
 
-					</div>
-				</div>
-			</article>
+<script>
+// Particle canvas
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, pts = [];
 
-			<!-- Projetos -->
-			<article id="projetos" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>Bem-vindo(a) ao Portifólio de Dados</h2>
-						<p>Nessa seção vou compartilhar alguns exemplos de projetos de análise de dados.</p>
-						<p>Espero poder ajudar</p>
-						
-					</header>
-					<div class="row">
+function resize(){W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; init()}
+function init(){
+  pts = [];
+  for(let i=0;i<90;i++) pts.push({
+    x:Math.random()*W, y:Math.random()*H,
+    vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+    r:Math.random()*1.5+.5,
+    c:[`rgba(167,139,250,`,`rgba(201,169,110,`,`rgba(244,63,94,`][Math.floor(Math.random()*3)]
+  })
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  pts.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>W) p.vx*=-1;
+    if(p.y<0||p.y>H) p.vy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.c+'0.7)';
+    ctx.fill();
+  });
+  pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{
+    const d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<120){
+      ctx.beginPath();
+      ctx.moveTo(a.x,a.y);
+      ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=`rgba(167,139,250,${.18*(1-d/120)})`;
+      ctx.lineWidth=.5;
+      ctx.stroke();
+    }
+  }));
+  requestAnimationFrame(draw);
+}
+window.addEventListener('resize',resize);
+resize(); draw();
 
-						<style>
-                                               .alinhado-esquerda {
-                                                 text-align: left;}
-                                                </style>
-
-
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://joycequoos.github.io/Rastreamento_prevencao_Lavagem_Dinheiro_rlt2.html" class="image featured"><img src="images/Projetos/20230620/Projeto_Dados.png" alt="" /></a>
-								<h3><a href="https://joycequoos.github.io/Rastreamento_prevencao_Lavagem_Dinheiro_rlt2.html">Projeto de Análise de Dados</a></h3>
-								<p class="alinhado-esquerda"><b>Ferramentas:</b> Integration Service, SQL, Python</p>
-								<p class="alinhado-esquerda"><b>Sobre o projeto:</b> Um exemplo de análise relacionado a area de Prevenção a Lavagem de dinheiro.</p>
-			                                        <p class="alinhado-esquerda"> A análise de dados desempenha um papel fundamental para prevenção a Lavagem de Dinheiro,
-								oferecendo uma abordagem baseada em evidências para identificar e mitigar atividades suspeitas. Por meio da utilização de técnicas é possivel 
-								identificar transações potencialmente ilícitas.<p>
-								<a href="https://github.com/joycequoos/Analise_de_Dados/tree/main">Link GitHub Projetos</a>
-								<p class="small-font">Análise de Dados</p>
-							</article>
-						</div>
-
-
-					</div>
-				</div>
-			</article>
-        
-		<!-- Work 
-        <article id="work" class="wrapper style2">
-            <div class="container">
-                <header>
-                    <h2>Certificados</h2>
-                    <p>Cursos que já realizei e certificados que possuo.</p>
-                </header>
-                <div class="row">
-			
-		     <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-538845cd-8e91-4375-9ee1-619c5824596c/" class="image featured"><img src="images/Certificados/ETL_Integration_Service.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-538845cd-8e91-4375-9ee1-619c5824596c/">ETL Integration Services</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div> 
-			
-		    <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-e8ecafbd-6be6-4dfe-9217-3f8134c7b76b/" class="image featured"><img src="images/Certificados/APIs_Com_NodeJS.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-e8ecafbd-6be6-4dfe-9217-3f8134c7b76b/">APIs com Nodejs</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-                    <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-6c65bd9e-e9c6-4d3a-a7d1-8185d8218e43/" class="image featured"><img src="images/Certificados/Analise_Indicadores_KPI.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-6c65bd9e-e9c6-4d3a-a7d1-8185d8218e43/">Analise de Indicadores</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-                    <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-e3b10e0b-ca80-44cd-b299-21841fa56f89/" class="image featured"><img src="images/Certificados/Automacao_Teste_Complete.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-e3b10e0b-ca80-44cd-b299-21841fa56f89/">Automação Testes Desktop</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-                    <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-3a211ed4-0a02-40c7-9652-25569a3a55eb/" class="image featured"><img src="images/Certificados/DBA.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-3a211ed4-0a02-40c7-9652-25569a3a55eb/">DBA SQL Server</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-                    <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-e2d6f1f8-bd2f-4349-b7d3-9894e5724dd2/" class="image featured"><img src="images/Certificados/DataScience_De_A_Z.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-e2d6f1f8-bd2f-4349-b7d3-9894e5724dd2/">Data Science de A a Z</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-
-			
-                    <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-0384d68c-e75a-4c9e-ab18-6fc2048f774a/" class="image featured"><img src="images/Certificados/Master_PowerBI.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-0384d68c-e75a-4c9e-ab18-6fc2048f774a/">Master Power BI</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-			
-		     <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-bbb93022-1f3f-40ca-b289-7260c47846af/" class="image featured"><img src="images/Certificados/SQL_Tuning.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-bbb93022-1f3f-40ca-b289-7260c47846af/">Tuning</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>	
-			
-	           <div class="col-4 col-6-medium col-12-small">
-                        <article class="box style2">
-                            <a href="https://www.udemy.com/certificate/UC-b55c0744-17ca-4c3a-a6a9-a7ceed06f74d/" class="image featured"><img src="images/Certificados/Stored_Procedure.JPG" alt="" /></a>
-                            <h3><a href="https://www.udemy.com/certificate/UC-b55c0744-17ca-4c3a-a6a9-a7ceed06f74d/">Stored Procedure</a></h3>
-                            <p>udemy</p>
-                        </article>
-                    </div>
-			
-                </div>
-            </div>
-        </article>        
--->
-		<!-- Contact -->
-			<article id="contact" class="wrapper style4">
-				<div class="container medium">
-					<div class="row">
-						<div class="col-12">
-							<h3>Redes sociais</h3>
-							<ul class="social">
-								<li><a href="https://www.linkedin.com/in/carolyumi/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://github.com/carolysg" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<footer>
-						<ul id="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
-				</div>
-			</article>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+// Smooth nav active
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+}));
+</script>
+</body>
 </html>
+
