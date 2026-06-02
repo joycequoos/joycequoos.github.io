@@ -63,7 +63,7 @@ section{padding:100px 48px;max-width:1100px;margin:0 auto}
 /* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.35s;position:relative}
-.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(244,63,94,.04));opacity:0;transition:.35s}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(244,63,94,.04));opacity:0;transition:.35s;pointer-events: none /* 🌟 ADICIONE ISSO AQUI */}
 .proj-card:hover{transform:translateY(-6px);border-color:rgba(167,139,250,.35);box-shadow:0 16px 48px rgba(124,58,237,.18)}
 .proj-card:hover::before{opacity:1}
 .proj-img{width:100%;height:160px;object-fit:cover;filter:saturate(.7)}
@@ -72,9 +72,9 @@ section{padding:100px 48px;max-width:1100px;margin:0 auto}
 .proj-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px}
 .proj-title{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:10px}
 .proj-desc{color:var(--gray);font-size:.84rem;line-height:1.75;margin-bottom:20px}
-.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gold-light);text-decoration:none;letter-spacing:.06em;transition:.2s}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gold-light);text-decoration:none;letter-spacing:.06em;transition:.2s; position: relative; /* 🌟 ADICIONE ISSO */;z-index: 5 /* 🌟 ADICIONE ISSO */}
 .proj-link:hover{color:var(--purple-light)}
-.proj-link svg{width:14px;height:14px}
+.proj-link svg{width:14px;height:14px;pointer-events: none}
 
 /* ABOUT */
 #about-sec{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
