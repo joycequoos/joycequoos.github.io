@@ -434,7 +434,7 @@
     <div class="hero-tag">Projeto de Compliance · PLD/AML</div>
     <h1>Rastreamento e <span>Prevenção</span> à Lavagem de Dinheiro</h1>
     <p class="hero-lead">
-      Uma jornada técnica e analítica que descreve como dados, processos ETL, regras de negócio e análises em Python formam um sistema integrado de combate a crimes financeiros.
+      Uma jornada técnica e analítica que descreve como dados, processos ELT, regras de negócio e análises em Python formam um sistema integrado de combate a crimes financeiros.
     </p>
     <div class="hero-stats">
       <div class="stat-item">
@@ -461,7 +461,7 @@
 <nav class="nav-pills">
   <div class="nav-pills-inner">
     <a class="nav-pill active" href="#intro">Introdução</a>
-    <a class="nav-pill" href="#etl">ETL</a>
+    <a class="nav-pill" href="#elt">ELT</a>
     <a class="nav-pill" href="#regras">Regras</a>
     <a class="nav-pill" href="#analise">Análise</a>
     <a class="nav-pill" href="#resultados">Resultados</a>
@@ -508,14 +508,14 @@
   </div>
 </section>
 
-<!-- SEÇÃO 02: ETL -->
-<section id="etl" class="section">
+<!-- SEÇÃO 02: ELT -->
+<section id="elt" class="section">
   <div class="container">
     <div class="section-eyebrow">
       <span class="eyebrow-num">02</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">Pipeline ETL com Integration Service</h2>
+    <h2 class="section-title">Pipeline ELT com Integration Service</h2>
     <p class="section-lead">
       O coração operacional do projeto: a extração, transformação e carga dos dados de movimentações financeiras que alimentam toda a análise.
     </p>
@@ -523,8 +523,8 @@
     <div class="card-grid cols-2" style="margin-top:36px;">
       <div class="card">
         <div class="card-icon navy">⚙️</div>
-        <h3>O que é ETL?</h3>
-        <p>Processo de Extração, Transformação e Carga. Coleta dados de diversas fontes, os transforma em formato adequado e os carrega num destino estruturado como um Data Warehouse.</p>
+        <h3>O que é ELT?</h3>
+        <p>Processo de Extração, Carga e Transformação. Coleta dados de diversas fontes, os carrega primeiro em formato bruto no destino e só então aplica as transformações — abordagem comum quando o próprio banco de destino tem poder de processamento para transformar (como aqui, via procedure SQL).</p>
       </div>
       <div class="card">
         <div class="card-icon blue">🔗</div>
@@ -780,7 +780,7 @@ conexao.<span class="fn">close</span>()</pre>
     <div class="conclusion-box">
       <h2>Visão integrada do projeto</h2>
       <p>
-        Este projeto demonstra como a integração de ETL, regras de negócio baseadas em Compliance e análises em SQL + Python cria um pipeline robusto de prevenção à lavagem de dinheiro — do dado bruto à decisão fundamentada.
+        Este projeto demonstra como a integração de ELT, regras de negócio baseadas em Compliance e análises em SQL + Python cria um pipeline robusto de prevenção à lavagem de dinheiro — do dado bruto à decisão fundamentada.
       </p>
       <div style="display:flex;gap:32px;margin-top:36px;flex-wrap:wrap;">
         <div>
@@ -789,7 +789,7 @@ conexao.<span class="fn">close</span>()</pre>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">SSIS</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Motor ETL</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Motor ELT</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">Python</div>
