@@ -4,33 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rastreamento e Prevenção à Lavagem de Dinheiro</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #160e22;
-    --ink-mid: #3d3350;
-    --ink-soft: #7b6e92;
-    --bg: #faf7fc;
-    --bg-card: #ffffff;
-    --accent: #3b1f6e;
-    --accent-2: #c4316b;
-    --accent-3: #6c3fa0;
-    --teal: #3e5fa8;
-    --amber: #9e2d72;
-    --border: rgba(90,40,130,0.10);
-    --radius: 16px;
-    --rose: #d4417a;
-    --violet: #6b38b0;
-    --periwinkle: #4a5ec7;
+    --ink: #E7ECF2;
+    --ink-mid: #AAB4C4;
+    --ink-soft: #7C8798;
+    --bg: #0A0E13;
+    --bg-card: #111826;
+    --accent: #161B2E;
+    --accent-2: #E27FA0;
+    --accent-3: #9370F5;
+    --teal: #5468F0;
+    --amber: #E27FA0;
+    --border: #202B3B;
+    --radius: 10px;
+    --rose: #E27FA0;
+    --violet: #9370F5;
+    --periwinkle: #5468F0;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: #faf8fd;
+    font-family: 'Inter', sans-serif;
+    background: #0A0E13;
     color: var(--ink);
     line-height: 1.7;
     font-size: 16px;
@@ -38,7 +38,7 @@
 
   /* ── HERO ── */
   .hero {
-    background: linear-gradient(135deg, #2a1250 0%, #4a1a7a 40%, #7a2568 75%, #a8265e 100%);
+    background: linear-gradient(135deg, #0A0E13 0%, #171E42 35%, #3F3FA0 72%, #5468F0 100%);
     color: white;
     padding: 100px 40px 80px;
     position: relative;
@@ -75,14 +75,14 @@
     color: rgba(255,255,255,0.85);
   }
   .hero h1 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 28px;
     letter-spacing: -0.02em;
   }
-  .hero h1 span { color: #f09ec2; }
+  .hero h1 span { color: #E27FA0; }
   .hero-lead {
     font-size: 1.15rem;
     color: rgba(255,255,255,0.75);
@@ -100,7 +100,7 @@
   }
   .stat-item {}
   .stat-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2.2rem;
     font-weight: 700;
     color: white;
@@ -115,7 +115,7 @@
 
   /* ── NAV PILLS ── */
   .nav-pills {
-    background: white;
+    background: #0D131E;
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
@@ -157,11 +157,11 @@
     margin-bottom: 16px;
   }
   .eyebrow-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: var(--violet);
-    background: rgba(107,56,176,0.1);
+    background: rgba(147,112,245,0.16);
     border-radius: 6px;
     padding: 4px 10px;
     letter-spacing: 0.06em;
@@ -173,7 +173,7 @@
     max-width: 40px;
   }
   .section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.1rem);
     font-weight: 700;
     line-height: 1.2;
@@ -206,13 +206,13 @@
     margin-bottom: 18px;
     font-size: 20px;
   }
-  .card-icon.blue { background: rgba(74,94,199,0.12); }
-  .card-icon.red { background: rgba(196,49,107,0.12); }
-  .card-icon.green { background: rgba(107,56,176,0.12); }
-  .card-icon.amber { background: rgba(158,45,114,0.12); }
-  .card-icon.navy { background: rgba(59,31,110,0.09); }
+  .card-icon.blue { background: rgba(84,104,240,0.16); }
+  .card-icon.red { background: rgba(226,127,160,0.16); }
+  .card-icon.green { background: rgba(147,112,245,0.16); }
+  .card-icon.amber { background: rgba(226,127,160,0.10); }
+  .card-icon.navy { background: rgba(84,104,240,0.10); }
   .card h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -226,9 +226,9 @@
     margin: 36px 0;
     border-left: 4px solid;
   }
-  .callout.info { background: rgba(74,94,199,0.07); border-color: var(--periwinkle); }
-  .callout.warning { background: rgba(158,45,114,0.07); border-color: var(--rose); }
-  .callout.success { background: rgba(107,56,176,0.07); border-color: var(--violet); }
+  .callout.info { background: rgba(84,104,240,0.08); border-color: var(--periwinkle); }
+  .callout.warning { background: rgba(226,127,160,0.08); border-color: var(--rose); }
+  .callout.success { background: rgba(147,112,245,0.08); border-color: var(--violet); }
   .callout p { font-size: 0.95rem; color: var(--ink-mid); }
   .callout strong { color: var(--ink); font-weight: 500; }
 
@@ -246,7 +246,7 @@
     border-radius: 50%;
     background: linear-gradient(135deg, var(--violet), var(--rose));
     color: white;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 14px;
     font-weight: 700;
     display: flex; align-items: center; justify-content: center;
@@ -262,7 +262,7 @@
   .process-step:last-child .step-line { display: none; }
   .step-content { padding-top: 8px; }
   .step-content h4 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 8px;
@@ -271,7 +271,7 @@
 
   /* ── CODE BLOCK ── */
   .code-block {
-    background: #1a0d30;
+    background: #080B10;
     border-radius: 12px;
     padding: 24px 28px;
     margin: 24px 0;
@@ -322,7 +322,7 @@
     font-size: 14px;
   }
   .data-table th {
-    background: #f5f0fb;
+    background: #0D131E;
     padding: 12px 16px;
     text-align: left;
     font-weight: 500;
@@ -339,7 +339,7 @@
     font-weight: 300;
   }
   .data-table tr:last-child td { border-bottom: none; }
-  .data-table tr:hover td { background: rgba(107,56,176,0.04); }
+  .data-table tr:hover td { background: rgba(147,112,245,0.07); }
   .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -347,9 +347,9 @@
     font-size: 12px;
     font-weight: 500;
   }
-  .badge-high { background: rgba(196,49,107,0.13); color: #8f1a4e; }
-  .badge-med { background: rgba(107,56,176,0.13); color: #4e2090; }
-  .badge-low { background: rgba(74,94,199,0.13); color: #2a3a94; }
+  .badge-high { background: rgba(226,127,160,0.18); color: #F7C3D6; }
+  .badge-med { background: rgba(147,112,245,0.18); color: #D3C7FF; }
+  .badge-low { background: rgba(84,104,240,0.18); color: #C0CAFF; }
 
   /* ── CHART VISUAL ── */
   .chart-card {
@@ -360,7 +360,7 @@
     margin-top: 28px;
   }
   .chart-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 24px;
@@ -369,16 +369,16 @@
   .bar-chart { display: flex; flex-direction: column; gap: 12px; }
   .bar-row { display: flex; align-items: center; gap: 14px; }
   .bar-label { font-size: 13px; color: var(--ink-mid); min-width: 130px; font-weight: 400; }
-  .bar-track { flex: 1; height: 10px; background: #ede8f7; border-radius: 100px; overflow: hidden; }
+  .bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 100px; transition: width 0.6s ease; }
-  .bar-fill.navy { background: linear-gradient(90deg, #4a1a7a, #8b2fa0); }
-  .bar-fill.teal { background: linear-gradient(90deg, #3a4ec0, #7a3db8); }
-  .bar-fill.red { background: linear-gradient(90deg, #c4316b, #e05590); }
+  .bar-fill.navy { background: linear-gradient(90deg, #3F3FA0, #9370F5); }
+  .bar-fill.teal { background: linear-gradient(90deg, #9370F5, #E27FA0); }
+  .bar-fill.red { background: linear-gradient(90deg, #E27FA0, #F2A8C4); }
   .bar-val { font-size: 13px; font-weight: 500; color: var(--ink); min-width: 44px; text-align: right; }
 
   /* ── CONCLUSION ── */
   .conclusion-box {
-    background: linear-gradient(135deg, #2a1250 0%, #4a1a7a 40%, #8a2568 75%, #b82a5e 100%);
+    background: linear-gradient(135deg, #0A0E13 0%, #1E2555 35%, #3F3FA0 70%, #9370F5 100%);
     color: white;
     border-radius: var(--radius);
     padding: 48px 40px;
@@ -395,7 +395,7 @@
     border: 1px solid rgba(255,255,255,0.08);
   }
   .conclusion-box h2 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 16px;
@@ -423,6 +423,10 @@
 </style>
 </head>
 <body>
+
+<div style="padding:14px 40px; border-bottom:1px solid #202B3B; background:#0A0E13;">
+  <a href="https://joycequoos.github.io/" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#AAB4C4; text-decoration:none; letter-spacing:0.04em;">← Voltar ao portfólio</a>
+</div>
 
 <!-- HERO -->
 <header class="hero">
@@ -530,10 +534,10 @@
     </div>
 
     <div class="callout info" style="margin-top:40px;">
-      <p><strong>Fonte dos dados:</strong> um arquivo <code style="background:rgba(0,0,0,0.07);padding:2px 6px;border-radius:4px">.csv</code> com informações de clientes e operações realizadas em <strong>D-1</strong> (dia anterior ao processamento). Esse ciclo garante que as análises reflitam sempre as movimentações mais recentes disponíveis.</p>
+      <p><strong>Fonte dos dados:</strong> um arquivo <code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;color:var(--ink)">.csv</code> com informações de clientes e operações realizadas em <strong>D-1</strong> (dia anterior ao processamento). Esse ciclo garante que as análises reflitam sempre as movimentações mais recentes disponíveis.</p>
     </div>
 
-    <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 20px;">Fluxo das etapas do pacote DTSX</h3>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 20px;">Fluxo das etapas do pacote DTSX</h3>
 
     <div class="process">
       <div class="process-step">
@@ -623,8 +627,8 @@
     </p>
 
     <!-- Sub: conexão -->
-    <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Conexão com SQL Server via Python</h3>
-    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:16px;">Usando a biblioteca <code style="background:#f0efe9;padding:2px 7px;border-radius:4px;font-size:12px">pymssql</code>, Python se conecta diretamente ao banco para executar queries e retornar DataFrames prontos para análise.</p>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Conexão com SQL Server via Python</h3>
+    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:16px;">Usando a biblioteca <code style="background:rgba(255,255,255,0.08);padding:2px 7px;border-radius:4px;font-size:12px;color:var(--ink)">pymssql</code>, Python se conecta diretamente ao banco para executar queries e retornar DataFrames prontos para análise.</p>
 
     <div class="code-block">
       <span class="code-label">Python · SQL Server Connection</span>
@@ -647,7 +651,7 @@ conexao.<span class="fn">close</span>()</pre>
     </div>
 
     <!-- Sub: quantidade de alertas -->
-    <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Quantidade de alertas gerados</h3>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Quantidade de alertas gerados</h3>
     <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;">Em <strong>31/07/2020</strong>, a execução da regra de alto valor gerou <strong>95 alertas</strong> para revisão pelo Compliance.</p>
 
     <div class="data-table-wrap">
@@ -666,7 +670,7 @@ conexao.<span class="fn">close</span>()</pre>
     </div>
 
     <!-- Sub: clientes com mais alertas -->
-    <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Clientes com maior incidência de alertas</h3>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Clientes com maior incidência de alertas</h3>
     <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;">Os 15 clientes com mais alertas foram identificados e ranqueados para priorização no processo de verificação.</p>
 
     <div class="data-table-wrap">
@@ -780,19 +784,19 @@ conexao.<span class="fn">close</span>()</pre>
       </p>
       <div style="display:flex;gap:32px;margin-top:36px;flex-wrap:wrap;">
         <div>
-          <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">D-1</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">D-1</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Ciclo de dados</div>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">SSIS</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">SSIS</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Motor ETL</div>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">Python</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">Python</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Análise & Viz</div>
         </div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;">PLD/AML</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">PLD/AML</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Objetivo final</div>
         </div>
       </div>
