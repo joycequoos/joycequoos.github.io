@@ -3,335 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joyce • Data Tech</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Joyce • Engenharia de Dados & IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0a0812;
-  --bg2:#110e1c;
-  --purple:#7c3aed;
-  --purple-light:#a78bfa;
-  --rose:#f43f5e;
-  --gold:#c9a96e;
-  --gold-light:#e8c99a;
-  --white:#f8f4ff;
-  --gray:#9d90b8;
-  --card:#16112a;
-  --border:rgba(167,139,250,0.15);
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+  :root{
+    --bg: #0A0E13;
+    --bg-panel: #111826;
+    --bg-panel-2: #0D131E;
+    --line: #202B3B;
+    --text: #E7ECF2;
+    --text-muted: #8C98AA;
+    --teal: #5468F0;
+    --violet: #9370F5;
+    --amber: #E27FA0;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; text-decoration:none; }
+  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  section{ position: relative; padding: 96px 0; }
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,8,18,0.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{font-family:'Playfair Display',serif;font-size:1.5rem;background:linear-gradient(135deg,var(--gold-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;transition:.3s}
-.nav-links a:hover{color:var(--gold-light)}
+  /* NAV */
+  nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(10,14,19,0.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  .logo{ font-family: var(--font-display); font-weight:700; font-size:1.05rem; letter-spacing:0.02em; }
+  .logo span{ color: var(--teal); }
+  .navlinks{ display:flex; gap:32px; font-size:0.88rem; color: var(--text-muted); font-family: var(--font-mono); }
+  .navlinks a:hover{ color: var(--teal); }
 
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:0 48px}
-canvas#particles{position:absolute;inset:0;width:100%;height:100%}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:700px}
-.hero-tag{display:inline-block;border:1px solid var(--border);padding:6px 18px;border-radius:999px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:28px;background:rgba(124,58,237,.08)}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);line-height:1.1;margin-bottom:20px}
-.hero-title span{background:linear-gradient(135deg,var(--gold-light) 0%,var(--purple-light) 60%,var(--rose) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:40px;font-weight:300}
-.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{padding:13px 32px;border-radius:50px;font-size:.88rem;letter-spacing:.06em;cursor:pointer;transition:.3s;text-decoration:none;font-weight:500}
-.btn-primary{background:linear-gradient(135deg,var(--purple),var(--rose));color:#fff;border:none;box-shadow:0 0 30px rgba(124,58,237,.35)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(124,58,237,.55)}
-.btn-outline{background:transparent;border:1px solid var(--border);color:var(--gold-light)}
-.btn-outline:hover{background:rgba(167,139,250,.08);border-color:var(--purple-light)}
+  /* HERO */
+  .hero{ padding-top: 120px; padding-bottom: 120px; overflow:hidden; background: radial-gradient(ellipse 620px 420px at 10% 15%, rgba(226,127,160,0.07), transparent 70%); }
+  .eyebrow{
+    font-family: var(--font-mono); font-size:0.78rem; letter-spacing:0.12em;
+    color: var(--amber); text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:24px;
+  }
+  .eyebrow::before{ content:''; width:20px; height:1px; background:var(--amber); }
+  h1{
+    font-family: var(--font-display); font-weight:700;
+    font-size: clamp(2.2rem, 5vw, 3.6rem); line-height:1.08; letter-spacing:-0.01em;
+    max-width: 780px;
+  }
+  h1 .accent{ color: var(--teal); }
+  .hero-sub{
+    margin-top:24px; max-width:560px; color: var(--text-muted); font-size:1.05rem;
+  }
+  .hero-cta{ margin-top:40px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    font-family: var(--font-mono); font-size:0.85rem; padding:14px 26px; border-radius:2px;
+    display:inline-flex; align-items:center; gap:8px; transition: all .2s ease;
+  }
+  .btn-primary{ background: var(--teal); color:#F4F6FF; font-weight:500; }
+  .btn-primary:hover{ background:#7086FF; }
+  .btn-ghost{ border:1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover{ border-color: var(--teal); color: var(--teal); }
 
-/* SECTION GENERIC */
-section{padding:100px 48px;max-width:1100px;margin:0 auto}
-.section-label{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.section-label::before{content:'';width:32px;height:1px;background:var(--gold)}
-.section-label span{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:48px}
-.section-title em{font-style:normal;background:linear-gradient(135deg,var(--gold-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  /* pipeline motif svg */
+  .pipeline-bg{ position:absolute; right:-60px; top:60px; width:520px; height:420px; opacity:0.9; pointer-events:none; }
+  @media (max-width: 980px){ .pipeline-bg{ display:none; } }
+  .flow-line{ stroke: var(--line); stroke-width:1.5; fill:none; }
+  .flow-line.active{ stroke: var(--teal); stroke-dasharray: 6 8; animation: dash 3s linear infinite; }
+  @keyframes dash{ to{ stroke-dashoffset: -140; } }
+  .node{ fill: var(--bg-panel); stroke: var(--line); stroke-width:1.5; }
+  .node.on{ stroke: var(--violet); }
+  .node-label{ font-family: var(--font-mono); font-size:9px; fill: var(--text-muted); }
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:0}
-.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 16px;text-align:center;transition:.3s;cursor:default}
-.skill-card:hover{border-color:var(--purple-light);transform:translateY(-4px);box-shadow:0 8px 32px rgba(124,58,237,.2)}
-.skill-icon{font-size:2rem;margin-bottom:10px}
-.skill-name{font-size:.82rem;color:var(--gray);letter-spacing:.06em}
+  /* STACK */
+  .section-head{ margin-bottom:56px; }
+  .section-eyebrow{ font-family: var(--font-mono); font-size:0.75rem; color: var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; }
+  .section-title{ font-family: var(--font-display); font-size:1.9rem; font-weight:600; margin-top:8px; }
+  .section-title em{ font-style:normal; color: var(--teal); }
 
-/* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.proj-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.35s;position:relative}
-.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(244,63,94,.04));opacity:0;transition:.35s;pointer-events: none /* 🌟 ADICIONE ISSO AQUI */}
-.proj-card:hover{transform:translateY(-6px);border-color:rgba(167,139,250,.35);box-shadow:0 16px 48px rgba(124,58,237,.18)}
-.proj-card:hover::before{opacity:1}
-.proj-img{width:100%;height:160px;object-fit:cover;filter:saturate(.7)}
-.proj-card:hover .proj-img{filter:saturate(1)}
-.proj-body{padding:24px}
-.proj-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px}
-.proj-title{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:10px}
-.proj-desc{color:var(--gray);font-size:.84rem;line-height:1.75;margin-bottom:20px}
-.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gold-light);text-decoration:none;letter-spacing:.06em;transition:.2s; position: relative; /* 🌟 ADICIONE ISSO */;z-index: 5 /* 🌟 ADICIONE ISSO */}
-.proj-link:hover{color:var(--purple-light)}
-.proj-link svg{width:14px;height:14px;pointer-events: none}
+  .stack-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:1px; background: var(--line); border:1px solid var(--line); }
+  @media (max-width: 800px){ .stack-grid{ grid-template-columns:1fr; } }
+  .stack-col{ background: var(--bg); padding:32px; }
+  .stack-col h3{
+    font-family: var(--font-mono); font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--violet); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--line);
+  }
+  .stack-col.ia h3{ color: var(--amber); }
+  .stack-col.bi h3{ color: var(--teal); }
+  .tool-row{ display:flex; align-items:center; gap:12px; padding:9px 0; font-size:0.92rem; color: var(--text); }
+  .tool-dot{ width:6px; height:6px; border-radius:50%; background: var(--text-muted); flex-shrink:0; }
 
-/* ABOUT */
-#about-sec{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.about-visual{position:relative}
-.about-blob{width:100%;max-width:380px;height:380px;background:radial-gradient(ellipse at 40% 40%,rgba(124,58,237,.3),transparent 70%),radial-gradient(ellipse at 70% 70%,rgba(244,63,94,.2),transparent 60%);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
-.about-initials{font-family:'Playfair Display',serif;font-size:6rem;background:linear-gradient(135deg,var(--gold-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.about-text p{color:var(--gray);line-height:1.9;font-size:.95rem;margin-bottom:16px}
-.about-stats{display:flex;gap:40px;margin-top:32px}
-.stat-num{font-family:'Playfair Display',serif;font-size:2rem;background:linear-gradient(135deg,var(--gold-light),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-label{font-size:.75rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase}
+  /* CASES */
+  .cases{ background: var(--bg-panel-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .case-list{ display:flex; flex-direction:column; gap:1px; background: var(--line); border:1px solid var(--line); }
+  .case-card{
+    background: var(--bg-panel); padding:40px; display:grid; grid-template-columns: 100px 1fr 220px;
+    gap:32px; align-items:start; transition: background .2s ease;
+  }
+  .case-card:hover{ background:#141D2C; }
+  @media (max-width: 860px){ .case-card{ grid-template-columns: 1fr; } }
+  .case-index{ font-family: var(--font-mono); color: var(--text-muted); font-size:0.85rem; }
+  .case-index .n{ display:block; font-size:1.6rem; color: var(--teal); font-family: var(--font-display); font-weight:600; }
+  .case-tag{
+    display:inline-block; font-family: var(--font-mono); font-size:0.7rem; color: var(--violet);
+    border:1px solid var(--violet); padding:3px 8px; border-radius:2px; margin-bottom:14px; letter-spacing:0.04em;
+  }
+  .case-card h4{ font-family: var(--font-display); font-size:1.28rem; font-weight:600; margin-bottom:12px; }
+  .case-block{ margin-bottom:10px; font-size:0.92rem; }
+  .case-block b{ color: var(--text); font-weight:600; }
+  .case-block span{ color: var(--text-muted); }
+  .case-link{ margin-top:14px; display:inline-flex; align-items:center; gap:6px; font-family: var(--font-mono); font-size:0.82rem; color: var(--teal); }
+  .case-link:hover{ text-decoration: underline; }
+  .metrics{ display:flex; flex-direction:column; gap:16px; }
+  .metric{ border-left:2px solid var(--line); padding-left:14px; }
+  .metric .val{ font-family: var(--font-display); font-size:1.5rem; font-weight:700; color: var(--amber); }
+  .metric .lbl{ font-family: var(--font-mono); font-size:0.72rem; color: var(--text-muted); text-transform:uppercase; }
 
-/* CONTACT */
-.contact-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:56px;text-align:center;background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(244,63,94,.05))}
-.contact-box h3{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px}
-.contact-box p{color:var(--gray);margin-bottom:36px;font-size:.95rem}
-.social-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-.soc-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:50px;border:1px solid var(--border);color:var(--white);text-decoration:none;font-size:.85rem;transition:.3s;background:rgba(255,255,255,.03)}
-.soc-btn:hover{border-color:var(--purple-light);background:rgba(124,58,237,.12);transform:translateY(-2px)}
+  /* IA BANNER */
+  .ia-banner{
+    margin-top:64px; border:1px dashed var(--violet); padding:32px; display:flex; justify-content:space-between;
+    align-items:center; gap:24px; flex-wrap:wrap; background: rgba(139,127,246,0.05);
+  }
+  .ia-banner p{ color: var(--text-muted); max-width:480px; font-size:0.92rem; }
+  .ia-banner h4{ font-family: var(--font-display); font-size:1.15rem; margin-bottom:8px; color: var(--violet); }
 
-/* FOOTER */
-footer{text-align:center;padding:32px;color:var(--gray);font-size:.8rem;border-top:1px solid var(--border)}
+  /* SOBRE */
+  .about-grid{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap:64px; align-items:start; }
+  @media (max-width: 860px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color: var(--text-muted); margin-bottom:16px; }
+  .stat-row{ display:flex; gap:40px; margin-top:8px; }
+  .stat{ }
+  .stat .val{ font-family: var(--font-display); font-size:2.2rem; font-weight:700; color: var(--teal); }
+  .stat .lbl{ font-family: var(--font-mono); font-size:0.72rem; color: var(--text-muted); text-transform:uppercase; margin-top:4px; }
 
-/* DIVIDER */
-.line-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+  /* CONTATO */
+  .contact{ text-align:center; }
+  .contact h2{ font-family: var(--font-display); font-size:2.2rem; font-weight:600; }
+  .contact p{ color: var(--text-muted); margin-top:12px; }
+  .contact-links{ margin-top:36px; display:flex; gap:20px; justify-content:center; }
+
+  footer{ border-top:1px solid var(--line); padding:32px 0; text-align:center; font-family: var(--font-mono); font-size:0.78rem; color: var(--text-muted); }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Joyce Q. Tubaroski</div>
-  <ul class="nav-links">
-    <li><a href="#trilha">Trilhaa</a></li>
-    <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
+  <div class="wrap">
+    <div class="logo">joyce<span>.</span>data</div>
+    <div class="navlinks">
+      <a href="#stack">Stack</a>
+      <a href="#cases">Cases</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
-<div id="hero">
-  <canvas id="particles"></canvas>
-  <div class="hero-content">
-    <div class="hero-tag">✦ Data Analyst & Developer</div>
-    <h1 class="hero-title">Transformando <span>dados em decisões</span> inteligentes</h1>
-    <p class="hero-sub">Especialista em Dados focada em gerar valor através da engenharia, modelagem e análise. Minha abordagem combina o domínio das práticas atuais com o aprendizado contínuo das ferramentas mais inovadoras e eficientes do mercado.<br>Explorando padrões que revelam o extraordinário no cotidiano.</p>
-    <div class="btn-group">
-      <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-      <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+<section class="hero">
+  <div class="wrap" style="position:relative;">
+    <svg class="pipeline-bg" viewBox="0 0 520 420">
+      <path class="flow-line active" d="M20 340 C 120 340, 100 260, 200 260 S 300 180, 400 180"/>
+      <path class="flow-line" d="M20 340 C 120 340, 100 380, 220 380 S 340 340, 460 340"/>
+      <path class="flow-line active" d="M200 260 C 260 260, 260 100, 380 100"/>
+      <circle class="node on" cx="20" cy="340" r="7"/>
+      <circle class="node" cx="200" cy="260" r="7"/>
+      <circle class="node on" cx="380" cy="100" r="8"/>
+      <circle class="node" cx="400" cy="180" r="7"/>
+      <circle class="node" cx="460" cy="340" r="6"/>
+      <text class="node-label" x="0" y="365">source</text>
+      <text class="node-label" x="182" y="285">transform</text>
+      <text class="node-label" x="352" y="80">insight</text>
+    </svg>
+    <div class="eyebrow">Engenharia de Dados &amp; IA</div>
+    <h1>De dado bruto a decisão: pipelines e sistemas de <span class="accent">IA que resolvem problemas reais</span></h1>
+    <p class="hero-sub">Especialista em dados com raízes em QA — o que significa que, para mim, uma solução só está pronta quando é testada, validada e documentada. Veja abaixo os problemas que já resolvi.</p>
+    <div class="hero-cta">
+      <a href="#cases" class="btn btn-primary">Ver cases de solução →</a>
+      <a href="#contato" class="btn btn-ghost">Entrar em contato</a>
     </div>
-  </div>
-</div>
-
-<div class="line-divider"></div>
-
-<!-- SKILLS -->
-<section id="trilha">
-  <div class="section-label"><span>Trilha de Estudos</span></div>
-  <h2 class="section-title">Tecnologias & <em>Ferramentas</em></h2>
-  <div class="skills-grid">
-    <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">SQL Server</div></div>
-    <div class="skill-card"><div class="skill-icon">🔄</div><div class="skill-name">ETL / SSIS</div></div>
-    <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div>
-    <div class="skill-card"><div class="skill-icon">🐼</div><div class="skill-name">Pandas / NumPy</div></div>
-    <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">Matplotlib</div></div>
-    <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Power BI</div></div>
-    <div class="skill-card"><div class="skill-icon">📓</div><div class="skill-name">Jupyter</div></div>
-    <div class="skill-card"><div class="skill-icon">🔐</div><div class="skill-name">Stored Procedures</div></div>  
-    <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">Claude AI</div></div>
-    <div class="skill-card"><div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Gemini" style="width: 1em; height: 1em; vertical-align: middle;"></div><div class="skill-name">Gemini</div></div>
-    <div class="skill-card"><div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" alt=".NET" style="width: 1em; height: 1em; vertical-align: middle;"></div><div class="skill-name">.NET</div></div>
   </div>
 </section>
 
-<div class="line-divider"></div>
-
-<!-- PROJECTS -->
-<section id="projetos">
-  <div class="section-label"><span>Portfólio</span></div>
-  <h2 class="section-title">Projetos em <em>Destaque</em></h2>
-  <div class="projects-grid">
-
-    <div class="proj-card">
-      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/ETL.png" alt="ETL">
-      <div class="proj-body">
-        <div class="proj-tag">SQL • ETL</div>
-        <h3 class="proj-title">ETL Integration Services</h3>
-        <p class="proj-desc">Pipeline de extração, transformação e carga de dados para consolidação e limpeza de grandes volumes de informação.</p>
-        <a class="proj-link" href="https://github.com/joycequoos/ETL_Integration_Service/blob/main/README.md" target="_blank">
-          Ver no GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Trilha técnica</div>
+      <div class="section-title">Stack por <em>domínio</em></div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-col eng">
+        <h3>Engenharia de Dados</h3>
+        <div class="tool-row"><span class="tool-dot"></span>SQL Server</div>
+        <div class="tool-row"><span class="tool-dot"></span>ETL / SSIS</div>
+        <div class="tool-row"><span class="tool-dot"></span>Stored Procedures</div>
+        <div class="tool-row"><span class="tool-dot"></span>Python / Pandas / NumPy</div>
+      </div>
+      <div class="stack-col ia">
+        <h3>IA &amp; Automação</h3>
+        <div class="tool-row"><span class="tool-dot"></span>Claude AI</div>
+        <div class="tool-row"><span class="tool-dot"></span>Gemini</div>
+        <div class="tool-row"><span class="tool-dot"></span>.NET</div>
+        <div class="tool-row"><span class="tool-dot"></span>Prompt engineering aplicado</div>
+      </div>
+      <div class="stack-col bi">
+        <h3>BI &amp; Análise</h3>
+        <div class="tool-row"><span class="tool-dot"></span>Power BI</div>
+        <div class="tool-row"><span class="tool-dot"></span>Matplotlib / Seaborn</div>
+        <div class="tool-row"><span class="tool-dot"></span>Jupyter</div>
+        <div class="tool-row"><span class="tool-dot"></span>Storytelling de dados</div>
       </div>
     </div>
-
-    <div class="proj-card">
-      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/SQL_FundoBranco.png" alt="SQL">
-      <div class="proj-body">
-        <div class="proj-tag">SQL Server</div>
-        <h3 class="proj-title">Stored Procedures Avançadas</h3>
-        <p class="proj-desc">Desenvolvimento de procedures para reutilização de código, otimização de desempenho e controle de acesso a dados.</p>
-        <a class="proj-link" href="https://github.com/joycequoos/SQL-Server-Developer_ProgramacaoTotalStoredProcedure" target="_blank">
-          Ver no GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230619_2/Jupyter_Fundo_Branco_Contorno.png" alt="Python">
-      <div class="proj-body">
-        <div class="proj-tag">Python • Jupyter</div>
-        <h3 class="proj-title">Exercícios com Pandas & NumPy</h3>
-        <p class="proj-desc">Manipulação e transformação de dados com as principais bibliotecas científicas do ecossistema Python.</p>
-        <a class="proj-link" href="https://github.com/joycequoos/Jupyter-exercises" target="_blank">
-          Ver no GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/DataVIsualization_2.png" alt="Relatórios">
-      <div class="proj-body">
-        <div class="proj-tag">Matplotlib • Seaborn</div>
-        <h3 class="proj-title">Visualização de Dados</h3>
-        <p class="proj-desc">Relatórios visuais com gráficos estatísticos, heatmaps e dashboards analíticos usando Matplotlib e Seaborn.</p>
-        <a class="proj-link" href="https://github.com/joycequoos/Jupyter_Relatorios" target="_blank">
-          Ver no GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230801/PowerBI.png" alt="Power BI">
-      <div class="proj-body">
-        <div class="proj-tag">Power BI</div>
-        <h3 class="proj-title">Dashboards Interativos</h3>
-        <p class="proj-desc">Painéis de Business Intelligence com conexão a múltiplas fontes, modelagem de dados e medidas calculadas.</p>
-        <a class="proj-link" href="https://sites.google.com/fato-ti.com.br/portifolio/in%C3%ADcio?authuser=1" target="_blank">
-          Ver Projeto
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <img class="proj-img" src="https://joycequoos.github.io/images/Projetos/20230620/Projeto_Dados.png" alt="Análise">
-      <div class="proj-body">
-        <div class="proj-tag">Análise de Dados • PLD</div>
-        <h3 class="proj-title">Prevenção à Lavagem de Dinheiro</h3>
-        <p class="proj-desc">Análise de transações financeiras para identificação de padrões suspeitos usando ETL, SQL e Python.</p>
-        <a class="proj-link" href="https://joycequoos.github.io/storytelling_pld_1.html" target="_blank">
-          Ver Relatório
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<div class="line-divider"></div>
+<section class="cases" id="cases">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Portfólio</div>
+      <div class="section-title">Problemas reais, <em>soluções entregues</em></div>
+    </div>
+    <div class="case-list">
 
-<!-- ABOUT -->
+      <div class="case-card">
+        <div class="case-index"><span class="n">01</span>ETL</div>
+        <div>
+          <span class="case-tag">Engenharia de Dados</span>
+          <h4>Pipeline D-1 de ingestão para prevenção à lavagem de dinheiro</h4>
+          <div class="case-block"><b>Problema:</b> <span>dados de clientes e operações chegam diariamente em arquivo bruto e precisam estar limpos e disponíveis antes das regras de Compliance rodarem.</span></div>
+          <div class="case-block"><b>Solução:</b> <span>pacote SSIS com 4 etapas — limpeza da staging, leitura/validação do arquivo D-1, execução de procedure de consolidação e liberação das tabelas para análise.</span></div>
+          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#etl">Ver etapa completa →</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="val">D-1</div><div class="lbl">ciclo de atualização</div></div>
+          <div class="metric"><div class="val">4</div><div class="lbl">etapas do pipeline</div></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-index"><span class="n">02</span>REG</div>
+        <div>
+          <span class="case-tag">Engenharia de Dados</span>
+          <h4>Motor de regras de detecção de transações suspeitas</h4>
+          <div class="case-block"><b>Problema:</b> <span>verificar manualmente cada movimentação contra o limiar de Compliance não escala com o volume diário de operações.</span></div>
+          <div class="case-block"><b>Solução:</b> <span>regra automatizada que sinaliza transações acima do parâmetro definido e segrega os resultados em tabela própria, criando fila de trabalho para o time de Compliance.</span></div>
+          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#regras">Ver etapa completa →</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="val">95</div><div class="lbl">alertas gerados no dia</div></div>
+          <div class="metric"><div class="val">5</div><div class="lbl">produtos monitorados</div></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-index"><span class="n">03</span>SQL</div>
+        <div>
+          <span class="case-tag">Análise &amp; IA</span>
+          <h4>Priorização de alertas com SQL + Python</h4>
+          <div class="case-block"><b>Problema:</b> <span>com dezenas de alertas gerados por dia, o Compliance precisa saber por onde começar a investigação.</span></div>
+          <div class="case-block"><b>Solução:</b> <span>conexão Python↔SQL Server (pymssql) para consultar alertas, ranquear os clientes com maior incidência e cruzar volume de movimentação com risco por produto.</span></div>
+          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#analise">Ver etapa completa →</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="val">15</div><div class="lbl">clientes priorizados</div></div>
+          <div class="metric"><div class="val">Corretora</div><div class="lbl">produto de maior risco relativo</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ia-banner">
+      <div>
+        <h4>Espaço reservado: IA em produção</h4>
+        <p>Um case aqui usando Claude/Gemini para automatizar uma decisão real (classificação, extração de dados, agente) tornaria essa seção muito mais forte — hoje as ferramentas aparecem na trilha, mas nenhum projeto ainda mostra IA aplicada.</p>
+      </div>
+      <a class="btn btn-ghost" href="#contato">Quero adicionar esse case</a>
+    </div>
+  </div>
+</section>
+
 <section id="sobre">
-  <div id="about-sec">
-    <div class="about-visual">
-      <div class="about-blob"><div class="about-initials">Joyce.</div></div>
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-eyebrow">Sobre</div>
+      <div class="section-title" style="margin-bottom:20px;">Quem <em>resolve</em> o problema</div>
+      <p>Minha jornada começou em 2005, na escola clássica do suporte técnico — onde aprendi a resolver problemas reais e entendi que "reiniciar o computador" às vezes resolve, mas não faz milagre.</p>
+      <p>Migrei para QA logo depois, fase que moldou minha forma de pensar. Desde 2020, atuo como Especialista em Dados, mas o passado me condena, no bom sentido: continuo com alma incorruptível de QA. Para mim, um dado só é bonito se for testado, validado e muito bem documentado.</p>
     </div>
-    <div class="about-text">
-      <div class="section-label"><span>Sobre</span></div>
-      <h2 class="section-title" style="margin-bottom:24px">Quem sou <em>eu</em></h2>
-      <p>Minha jornada na tecnologia começou lá em 2005, na clássica escola do suporte — onde aprendi a respirar fundo, resolver problemas reais e entender que 'reiniciar o computador' às vezes resolve, mas não faz milagre. Pouco tempo depois, migrei para QA (Quality Assurance), uma fase que moldou completamente a minha forma de pensar.</p>
-      <p>Desde 2020, atuo como Especialista em Dados, mas o passado me condena (no bom sentido): continuo com uma alma incorruptível de QA. Isso significa que, para mim, um dado só é bonito se for testado, validado e — milagre dos milagres — muito bem documentado..</p>
-      <div class="about-stats">
-        <div><div class="stat-num">6+</div><div class="stat-label">Projetos</div></div>
-        <div><div class="stat-num">3+</div><div class="stat-label">Tecnologias</div></div>
-        <div><div class="stat-num">∞</div><div class="stat-label">Curiosidade</div></div>
+    <div>
+      <div class="stat-row">
+        <div class="stat"><div class="val">6+</div><div class="lbl">projetos</div></div>
+        <div class="stat"><div class="val">3+</div><div class="lbl">domínios técnicos</div></div>
+        <div class="stat"><div class="val">∞</div><div class="lbl">curiosidade</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="line-divider"></div>
-
-<!-- CONTACT -->
-<section id="contato">
-  <div class="contact-box">
-    <h3>Vamos <em style="font-style:normal;background:linear-gradient(135deg,#e8c99a,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">conversar?</em></h3>
-    <p>Aberta a oportunidades, colaborações e novas conexões.</p>
-    <div class="social-links">
-      <a class="soc-btn" href="https://www.linkedin.com/in/joycequoos/" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a class="soc-btn" href="https://github.com/joycequoos" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub
-      </a>
+<section class="contact" id="contato">
+  <div class="wrap">
+    <h2>Vamos conversar?</h2>
+    <p>Colaborações e novas conexões em Engenharia de Dados e IA.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/joycequoos/">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/joycequoos">GitHub</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>✦ Feito com elegância & dados • Joyce © 2025</p>
-</footer>
+<footer>✦ joyce.data — pipelines e IA para problemas reais © 2026</footer>
 
-<script>
-// Particle canvas
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let W, H, pts = [];
-
-function resize(){W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; init()}
-function init(){
-  pts = [];
-  for(let i=0;i<90;i++) pts.push({
-    x:Math.random()*W, y:Math.random()*H,
-    vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
-    r:Math.random()*1.5+.5,
-    c:[`rgba(167,139,250,`,`rgba(201,169,110,`,`rgba(244,63,94,`][Math.floor(Math.random()*3)]
-  })
-}
-function draw(){
-  ctx.clearRect(0,0,W,H);
-  pts.forEach(p=>{
-    p.x+=p.vx; p.y+=p.vy;
-    if(p.x<0||p.x>W) p.vx*=-1;
-    if(p.y<0||p.y>H) p.vy*=-1;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=p.c+'0.7)';
-    ctx.fill();
-  });
-  pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{
-    const d=Math.hypot(a.x-b.x,a.y-b.y);
-    if(d<120){
-      ctx.beginPath();
-      ctx.moveTo(a.x,a.y);
-      ctx.lineTo(b.x,b.y);
-      ctx.strokeStyle=`rgba(167,139,250,${.18*(1-d/120)})`;
-      ctx.lineWidth=.5;
-      ctx.stroke();
-    }
-  }));
-  requestAnimationFrame(draw);
-}
-window.addEventListener('resize',resize);
-resize(); draw();
-
-// Smooth nav active
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault();
-  document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
-}));
-</script>
 </body>
 </html>
 
