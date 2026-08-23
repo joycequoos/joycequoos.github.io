@@ -461,7 +461,7 @@
 <nav class="nav-pills">
   <div class="nav-pills-inner">
     <a class="nav-pill active" href="#intro">Introdução</a>
-    <a class="nav-pill" href="#elt">ELT</a>
+    <a class="nav-pill" href="#elt">ETL/ELT</a>
     <a class="nav-pill" href="#regras">Regras</a>
     <a class="nav-pill" href="#analise">Análise</a>
     <a class="nav-pill" href="#resultados">Resultados</a>
@@ -508,36 +508,81 @@
   </div>
 </section>
 
-<!-- SEÇÃO 02: ELT -->
+<!-- SEÇÃO 02: ETL/ELT -->
 <section id="elt" class="section">
   <div class="container">
     <div class="section-eyebrow">
       <span class="eyebrow-num">02</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">Pipeline ELT com Integration Service</h2>
+    <h2 class="section-title">Pipeline ETL e ELT</h2>
     <p class="section-lead">
-      O coração operacional do projeto: a extração, transformação e carga dos dados de movimentações financeiras que alimentam toda a análise.
+      O coração operacional do projeto: a extração, transformação e carga dos dados de movimentações financeiras que alimentam toda a análise. A técnica de ingestão varia conforme o cenário e a infraestrutura de cada cliente.
     </p>
 
     <div class="card-grid cols-2" style="margin-top:36px;">
+      <div class="card">
+        <div class="card-icon blue">📥</div>
+        <h3>O que é ETL?</h3>
+        <p>Processo de Extração, Transformação e Carga. Os dados são transformados numa camada intermediária antes de chegar ao destino final — abordagem tradicional quando o destino tem pouca capacidade de processamento.</p>
+      </div>
       <div class="card">
         <div class="card-icon navy">⚙️</div>
         <h3>O que é ELT?</h3>
         <p>Processo de Extração, Carga e Transformação. Coleta dados de diversas fontes, os carrega primeiro em formato bruto no destino e só então aplica as transformações — abordagem comum quando o próprio banco de destino tem poder de processamento para transformar (como aqui, via procedure SQL).</p>
       </div>
+    </div>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:48px 0 20px;">Formas de implementação</h3>
+    <div class="card-grid cols-3">
       <div class="card">
-        <div class="card-icon blue">🔗</div>
-        <h3>Integration Service</h3>
-        <p>Componente de plataformas como Microsoft SSIS ou Informatica PowerCenter. Gerencia o fluxo de dados entre fontes e destinos com interface gráfica intuitiva.</p>
+        <div class="card-icon navy">🔗</div>
+        <h3>SSIS</h3>
+        <p>Pacotes de Integration Services para orquestração de fluxos em ambiente SQL Server — a técnica usada neste projeto.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">🐍</div>
+        <h3>Python</h3>
+        <p>Scripts customizados para ingestões flexíveis, com controle total sobre validação e transformação dos dados.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">⚡</div>
+        <h3>Bulk Insert</h3>
+        <p>Cargas de alto volume direto no banco, priorizando performance em cenários de arquivos grandes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon amber">🗂️</div>
+        <h3>Leitura de Views</h3>
+        <p>Extração direta de views disponibilizadas na base do cliente, sem necessidade de arquivo intermediário.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon red">☁️</div>
+        <h3>AWS</h3>
+        <p>Leitura direta de volumes em nuvem, para cenários em que a origem dos dados já está hospedada na AWS.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon navy">🔀</div>
+        <h3>Airflow</h3>
+        <p>DAGs para orquestração e agendamento de pipelines mais complexos, com múltiplas dependências entre etapas.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">🧾</div>
+        <h3>Arquivo JSON</h3>
+        <p>Leitura e parsing de arquivos .json, comuns em integrações com sistemas que exportam dados semiestruturados.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">🌐</div>
+        <h3>API</h3>
+        <p>Consumo direto de API do cliente ou de terceiros, sem etapa intermediária de arquivo, para ingestões em tempo real ou sob demanda.</p>
       </div>
     </div>
 
     <div class="callout info" style="margin-top:40px;">
-      <p><strong>Fonte dos dados:</strong> um arquivo <code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;color:var(--ink)">.csv</code> com informações de clientes e operações realizadas em <strong>D-1</strong> (dia anterior ao processamento). Esse ciclo garante que as análises reflitam sempre as movimentações mais recentes disponíveis.</p>
+      <p><strong>Fonte dos dados neste projeto:</strong> informações de clientes e operações realizadas em <strong>D-1</strong> (dia anterior ao processamento), extraídas diretamente da base de origem do cliente. Esse ciclo de atualização pode ser adaptado conforme a necessidade de cada cliente — aqui, D-1 garante que as análises reflitam sempre as movimentações mais recentes disponíveis.</p>
     </div>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 20px;">Fluxo das etapas do pacote DTSX</h3>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 12px;">Fluxo das etapas — implementação aplicada neste projeto</h3>
+    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;">Geralmente ocorre na sequência abaixo, mas pode haver alterações no fluxo dependendo do cliente ou produto.</p>
 
     <div class="process">
       <div class="process-step">
@@ -556,8 +601,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Leitura do arquivo origem</h4>
-          <p>O arquivo .csv é lido, validado e seus registros são carregados na tabela destino do banco de dados, incluindo dados de clientes e operações do dia anterior.</p>
+          <h4>Leitura da origem</h4>
+          <p>Os dados são lidos, validados e seus registros carregados na tabela destino do banco de dados, incluindo dados de clientes e operações do dia anterior.</p>
         </div>
       </div>
       <div class="process-step">
@@ -789,7 +834,7 @@ conexao.<span class="fn">close</span>()</pre>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">SSIS</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Motor ELT</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Motor ETL/ELT usado aqui</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">Python</div>
