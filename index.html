@@ -233,17 +233,17 @@
     <div class="case-list">
 
       <div class="case-card">
-        <div class="case-index"><span class="n">01</span>ETL</div>
+        <div class="case-index"><span class="n">01</span>ETL/ELT</div>
         <div>
           <span class="case-tag">Engenharia de Dados</span>
-          <h4>Pipeline D-1 de ingestão para prevenção à lavagem de dinheiro</h4>
-          <div class="case-block"><b>Problema:</b> <span>dados de clientes e operações chegam diariamente em arquivo bruto e precisam estar limpos e disponíveis antes das regras de Compliance rodarem.</span></div>
-          <div class="case-block"><b>Solução:</b> <span>pacote SSIS com 4 etapas — limpeza da staging, leitura/validação do arquivo D-1, execução de procedure de consolidação e liberação das tabelas para análise.</span></div>
+          <h4>Pipelines de ingestão sob medida: ETL e ELT conforme o cenário do cliente</h4>
+          <div class="case-block"><b>Problema:</b> <span>cada ambiente de cliente impõe restrições diferentes de acesso, volume e infraestrutura — nem sempre é possível, ou eficiente, usar a mesma abordagem de ingestão em todos os projetos.</span></div>
+          <div class="case-block"><b>Solução:</b> <span>pipelines de ETL e ELT com a técnica mais adequada a cada contexto — pacotes SSIS para orquestração em SQL Server, scripts Python para ingestões customizadas, Bulk Insert para cargas de alto volume, leitura direta de views na base do cliente, leitura direta de volumes na AWS e DAGs no Airflow para orquestração e agendamento de pipelines mais complexos.</span></div>
           <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#etl">Ver etapa completa →</a>
         </div>
         <div class="metrics">
-          <div class="metric"><div class="val">D-1</div><div class="lbl">ciclo de atualização</div></div>
-          <div class="metric"><div class="val">4</div><div class="lbl">etapas do pipeline</div></div>
+          <div class="metric"><div class="val">6</div><div class="lbl">formas de implementação</div></div>
+          <div class="metric"><div class="val">2</div><div class="lbl">abordagens: ETL e ELT</div></div>
         </div>
       </div>
 
@@ -322,4 +322,3 @@
 
 </body>
 </html>
-
