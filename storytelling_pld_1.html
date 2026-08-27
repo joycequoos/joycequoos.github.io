@@ -82,7 +82,7 @@
     margin-bottom: 28px;
     letter-spacing: -0.02em;
   }
-  .hero h1 span { color: #E27FA0; }
+  .hero h1 .accent { color: #E27FA0; }
   .hero-lead {
     font-size: 1.15rem;
     color: rgba(255,255,255,0.75);
@@ -430,38 +430,51 @@
     .nav-pills-inner { padding: 0 24px; }
     .conclusion-box { padding: 32px 24px; }
   }
+
+  /* ── LANG TOGGLE ── */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px; border-bottom: 1px solid #202B3B; background: #0A0E13;
+  }
+  #lang-toggle {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-mid);
+    background: transparent; border: 1px solid var(--border); border-radius: 6px;
+    padding: 6px 14px; cursor: pointer; letter-spacing: 0.04em; transition: all .2s ease;
+  }
+  #lang-toggle:hover { border-color: var(--periwinkle); color: var(--periwinkle); }
 </style>
 </head>
 <body>
 
-<div style="padding:14px 40px; border-bottom:1px solid #202B3B; background:#0A0E13;">
-  <a href="https://joycequoos.github.io/" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#AAB4C4; text-decoration:none; letter-spacing:0.04em;">← Voltar ao portfólio</a>
+<div class="topbar">
+  <a href="https://joycequoos.github.io/" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#AAB4C4; text-decoration:none; letter-spacing:0.04em;" data-i18n="back_link">← Voltar ao portfólio</a>
+  <button id="lang-toggle" aria-label="Switch language">EN</button>
 </div>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Projeto de Compliance · PLD/AML</div>
-    <h1>Rastreamento e <span>Prevenção</span> à Lavagem de Dinheiro</h1>
-    <p class="hero-lead">
+    <div class="hero-tag" data-i18n="hero_tag">Projeto de Compliance · PLD/AML</div>
+    <h1><span data-i18n="hero_title_main">Rastreamento e </span><span class="accent" data-i18n="hero_title_accent">Prevenção</span><span data-i18n="hero_title_rest"> à Lavagem de Dinheiro</span></h1>
+    <p class="hero-lead" data-i18n="hero_lead">
       Uma jornada técnica e analítica que descreve como dados, processos ELT, regras de negócio e análises em Python formam um sistema integrado de combate a crimes financeiros.
     </p>
     <div class="hero-stats">
       <div class="stat-item">
         <div class="stat-num">95</div>
-        <div class="stat-label">Alertas gerados</div>
+        <div class="stat-label" data-i18n="stat1_label">Alertas gerados</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">5</div>
-        <div class="stat-label">Produtos monitorados</div>
+        <div class="stat-label" data-i18n="stat2_label">Produtos monitorados</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">4</div>
-        <div class="stat-label">Etapas do pipeline</div>
+        <div class="stat-label" data-i18n="stat3_label">Etapas do pipeline</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">D-1</div>
-        <div class="stat-label">Ciclo de atualização</div>
+        <div class="stat-label" data-i18n="stat4_label">Ciclo de atualização</div>
       </div>
     </div>
   </div>
@@ -470,11 +483,11 @@
 <!-- NAV -->
 <nav class="nav-pills">
   <div class="nav-pills-inner">
-    <a class="nav-pill active" href="#intro">Introdução</a>
-    <a class="nav-pill" href="#elt">ETL/ELT</a>
-    <a class="nav-pill" href="#regras">Regras</a>
-    <a class="nav-pill" href="#analise">Análise</a>
-    <a class="nav-pill" href="#resultados">Resultados</a>
+    <a class="nav-pill active" href="#intro" data-i18n="nav_intro">Introdução</a>
+    <a class="nav-pill" href="#elt" data-i18n="nav_elt">ETL/ELT</a>
+    <a class="nav-pill" href="#regras" data-i18n="nav_regras">Regras</a>
+    <a class="nav-pill" href="#analise" data-i18n="nav_analise">Análise</a>
+    <a class="nav-pill" href="#resultados" data-i18n="nav_resultados">Resultados</a>
   </div>
 </nav>
 
@@ -485,34 +498,34 @@
       <span class="eyebrow-num">01</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">O problema que o projeto resolve</h2>
-    <p class="section-lead">
+    <h2 class="section-title" data-i18n="s1_title">O problema que o projeto resolve</h2>
+    <p class="section-lead" data-i18n="s1_lead">
       A lavagem de dinheiro é um crime financeiro que disfarça a origem ilícita de fundos, tornando-os aparentemente legítimos. Ela afeta a estabilidade econômica e a integridade dos sistemas financeiros globalmente.
     </p>
 
     <div class="callout info">
-      <p><strong>Contexto fictício:</strong> os dados, clientes e transações utilizados neste projeto são completamente fictícios e têm finalidade exclusivamente demonstrativa. Nenhuma informação real foi utilizada.</p>
+      <p><strong data-i18n="s1_callout_label">Contexto fictício:</strong> <span data-i18n="s1_callout_text">os dados, clientes e transações utilizados neste projeto são completamente fictícios e têm finalidade exclusivamente demonstrativa. Nenhuma informação real foi utilizada.</span></p>
     </div>
 
     <div class="card-grid cols-3">
       <div class="card">
         <div class="card-icon red">🔴</div>
-        <h3>Colocação</h3>
-        <p>Inserção dos recursos ilícitos no sistema econômico via depósitos, compra de instrumentos ou bens, frequentemente em países com menor regulação.</p>
+        <h3 data-i18n="s1_card1_title">Colocação</h3>
+        <p data-i18n="s1_card1_text">Inserção dos recursos ilícitos no sistema econômico via depósitos, compra de instrumentos ou bens, frequentemente em países com menor regulação.</p>
       </div>
       <div class="card">
         <div class="card-icon amber">🟠</div>
-        <h3>Ocultação</h3>
-        <p>Quebra da trilha contábil por meio de transferências eletrônicas para contas anônimas, dificultando rastreamento por autoridades.</p>
+        <h3 data-i18n="s1_card2_title">Ocultação</h3>
+        <p data-i18n="s1_card2_text">Quebra da trilha contábil por meio de transferências eletrônicas para contas anônimas, dificultando rastreamento por autoridades.</p>
       </div>
       <div class="card">
         <div class="card-icon green">🟢</div>
-        <h3>Integração</h3>
-        <p>Os recursos retornam ao sistema econômico formal, aparentemente "limpos", prontos para uso pelas organizações criminosas.</p>
+        <h3 data-i18n="s1_card3_title">Integração</h3>
+        <p data-i18n="s1_card3_text">Os recursos retornam ao sistema econômico formal, aparentemente "limpos", prontos para uso pelas organizações criminosas.</p>
       </div>
     </div>
 
-    <p class="section-lead" style="margin-top:36px;">
+    <p class="section-lead" style="margin-top:36px;" data-i18n="s1_closing">
       A análise de dados oferece uma abordagem baseada em evidências para identificar e mitigar essas atividades suspeitas, tornando-se um aliado essencial do Compliance.
     </p>
   </div>
@@ -525,80 +538,80 @@
       <span class="eyebrow-num">02</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">Pipeline ETL e ELT</h2>
-    <p class="section-lead">
+    <h2 class="section-title" data-i18n="s2_title">Pipeline ETL e ELT</h2>
+    <p class="section-lead" data-i18n="s2_lead">
       O coração operacional do projeto: a extração, transformação e carga dos dados de movimentações financeiras que alimentam toda a análise. A técnica de ingestão varia conforme o cenário e a infraestrutura de cada cliente.
     </p>
 
     <div class="card-grid cols-2" style="margin-top:36px;">
       <div class="card">
         <div class="card-icon blue">📥</div>
-        <h3>O que é ETL?</h3>
-        <p>Processo de Extração, Transformação e Carga. Os dados são transformados numa camada intermediária antes de chegar ao destino final — abordagem tradicional quando o destino tem pouca capacidade de processamento.</p>
+        <h3 data-i18n="s2_etl_title">O que é ETL?</h3>
+        <p data-i18n="s2_etl_text">Processo de Extração, Transformação e Carga. Os dados são transformados numa camada intermediária antes de chegar ao destino final — abordagem tradicional quando o destino tem pouca capacidade de processamento.</p>
       </div>
       <div class="card">
         <div class="card-icon navy">⚙️</div>
-        <h3>O que é ELT?</h3>
-        <p>Processo de Extração, Carga e Transformação. Coleta dados de diversas fontes, os carrega primeiro em formato bruto no destino e só então aplica as transformações — abordagem comum quando o próprio banco de destino tem poder de processamento para transformar (como aqui, via procedure SQL).</p>
+        <h3 data-i18n="s2_elt_title">O que é ELT?</h3>
+        <p data-i18n="s2_elt_text">Processo de Extração, Carga e Transformação. Coleta dados de diversas fontes, os carrega primeiro em formato bruto no destino e só então aplica as transformações — abordagem comum quando o próprio banco de destino tem poder de processamento para transformar (como aqui, via procedure SQL).</p>
       </div>
     </div>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:48px 0 20px;">Formas de implementação</h3>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:48px 0 20px;" data-i18n="s2_impl_heading">Formas de implementação</h3>
     <div class="card-grid cols-3">
       <div class="card">
         <div class="card-icon navy">🔗</div>
         <h3>SSIS</h3>
-        <p>Pacotes de Integration Services para orquestração de fluxos em ambiente SQL Server — a técnica usada neste projeto.</p>
-        <a class="card-link" href="https://github.com/joycequoos/ETL_Integration_Service" target="_blank" rel="noopener">Ver repositório →</a>
+        <p data-i18n="s2_ssis_text">Pacotes de Integration Services para orquestração de fluxos em ambiente SQL Server — a técnica usada neste projeto.</p>
+        <a class="card-link" href="https://github.com/joycequoos/ETL_Integration_Service" target="_blank" rel="noopener" data-i18n="card_link_repo">Ver repositório →</a>
       </div>
       <div class="card">
         <div class="card-icon blue">🐍</div>
         <h3>Python</h3>
-        <p>Scripts customizados para ingestões flexíveis, com controle total sobre validação e transformação dos dados.</p>
-        <a class="card-link" href="https://github.com/joycequoos/ETL_com_python/blob/main/README.md" target="_blank" rel="noopener">Ver repositório →</a>
+        <p data-i18n="s2_python_text">Scripts customizados para ingestões flexíveis, com controle total sobre validação e transformação dos dados.</p>
+        <a class="card-link" href="https://github.com/joycequoos/ETL_com_python/blob/main/README.md" target="_blank" rel="noopener" data-i18n="card_link_repo">Ver repositório →</a>
       </div>
       <div class="card">
         <div class="card-icon green">⚡</div>
-        <h3>Bulk Insert</h3>
-        <p>Cargas de alto volume direto no banco, priorizando performance em cenários de arquivos grandes.</p>
-        <a class="card-link" href="https://github.com/joycequoos/BulkInsert/tree/main#readme" target="_blank" rel="noopener">Ver repositório →</a>
+        <h3 data-i18n="s2_bulk_title">Bulk Insert</h3>
+        <p data-i18n="s2_bulk_text">Cargas de alto volume direto no banco, priorizando performance em cenários de arquivos grandes.</p>
+        <a class="card-link" href="https://github.com/joycequoos/BulkInsert/tree/main#readme" target="_blank" rel="noopener" data-i18n="card_link_repo">Ver repositório →</a>
       </div>
       <div class="card">
         <div class="card-icon amber">🗂️</div>
-        <h3>Leitura de Views</h3>
-        <p>Extração direta de views disponibilizadas na base do cliente, sem necessidade de arquivo intermediário.</p>
+        <h3 data-i18n="s2_views_title">Leitura de Views</h3>
+        <p data-i18n="s2_views_text">Extração direta de views disponibilizadas na base do cliente, sem necessidade de arquivo intermediário.</p>
       </div>
       <div class="card">
         <div class="card-icon red">☁️</div>
-        <h3>Cloud (AWS · Azure · BigQuery)</h3>
-        <p>Leitura direta de volumes em nuvem, para cenários em que a origem dos dados já está hospedada em provedores como AWS, Azure ou BigQuery.</p>
-        <a class="card-link" href="https://github.com/joycequoos/airflow-csv-to-bigquery" target="_blank" rel="noopener">Ver repositório →</a>
+        <h3 data-i18n="s2_cloud_title">Cloud (AWS · Azure · BigQuery)</h3>
+        <p data-i18n="s2_cloud_text">Leitura direta de volumes em nuvem, para cenários em que a origem dos dados já está hospedada em provedores como AWS, Azure ou BigQuery.</p>
+        <a class="card-link" href="https://github.com/joycequoos/airflow-csv-to-bigquery" target="_blank" rel="noopener" data-i18n="card_link_repo">Ver repositório →</a>
       </div>
       <div class="card">
         <div class="card-icon navy">🔀</div>
-        <h3>Airflow</h3>
-        <p>DAGs para orquestração e agendamento de pipelines mais complexos, com múltiplas dependências entre etapas.</p>
-        <a class="card-link" href="https://github.com/joycequoos/Analise_de_Dados/blob/main/Airflow/Dag_Ler_Arquivo_CSV-README.md" target="_blank" rel="noopener">Ver repositório →</a>
+        <h3 data-i18n="s2_airflow_title">Airflow</h3>
+        <p data-i18n="s2_airflow_text">DAGs para orquestração e agendamento de pipelines mais complexos, com múltiplas dependências entre etapas.</p>
+        <a class="card-link" href="https://github.com/joycequoos/Analise_de_Dados/blob/main/Airflow/Dag_Ler_Arquivo_CSV-README.md" target="_blank" rel="noopener" data-i18n="card_link_repo">Ver repositório →</a>
       </div>
       <div class="card">
         <div class="card-icon green">🧾</div>
-        <h3>Arquivo JSON</h3>
-        <p>Leitura e parsing de arquivos .json, comuns em integrações com sistemas que exportam dados semiestruturados.</p>
-        <a class="card-link" href="https://github.com/joycequoos/SQL/blob/main/SQL_Json/Importar_JsonSQL-README.md" target="_blank" rel="noopener">Ver repositório →</a>
+        <h3 data-i18n="s2_json_title">Arquivo JSON</h3>
+        <p data-i18n="s2_json_text">Leitura e parsing de arquivos .json, comuns em integrações com sistemas que exportam dados semiestruturados.</p>
+        <a class="card-link" href="https://github.com/joycequoos/SQL/blob/main/SQL_Json/Importar_JsonSQL-README.md" target="_blank" rel="noopener" data-i18n="card_link_repo">Ver repositório →</a>
       </div>
       <div class="card">
         <div class="card-icon blue">🌐</div>
-        <h3>API</h3>
-        <p>Consumo direto de API do cliente ou de terceiros, sem etapa intermediária de arquivo, para ingestões em tempo real ou sob demanda.</p>
+        <h3 data-i18n="s2_api_title">API</h3>
+        <p data-i18n="s2_api_text">Consumo direto de API do cliente ou de terceiros, sem etapa intermediária de arquivo, para ingestões em tempo real ou sob demanda.</p>
       </div>
     </div>
 
     <div class="callout info" style="margin-top:40px;">
-      <p><strong>Fonte dos dados neste projeto:</strong> informações de clientes e operações realizadas em <strong>D-1</strong> (dia anterior ao processamento), extraídas diretamente da base de origem do cliente. Esse ciclo de atualização pode ser adaptado conforme a necessidade de cada cliente — aqui, D-1 garante que as análises reflitam sempre as movimentações mais recentes disponíveis.</p>
+      <p><strong data-i18n="s2_callout_label">Fonte dos dados neste projeto:</strong> <span data-i18n="s2_callout_text">informações de clientes e operações realizadas em D-1 (dia anterior ao processamento), extraídas diretamente da base de origem do cliente. Esse ciclo de atualização pode ser adaptado conforme a necessidade de cada cliente — aqui, D-1 garante que as análises reflitam sempre as movimentações mais recentes disponíveis.</span></p>
     </div>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 12px;">Fluxo das etapas — implementação aplicada neste projeto</h3>
-    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;">Geralmente ocorre na sequência abaixo, mas pode haver alterações no fluxo dependendo do cliente ou produto.</p>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 12px;" data-i18n="s2_flow_heading">Fluxo das etapas — implementação aplicada neste projeto</h3>
+    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;" data-i18n="s2_flow_sub">Geralmente ocorre na sequência abaixo, mas pode haver alterações no fluxo dependendo do cliente ou produto.</p>
 
     <div class="process">
       <div class="process-step">
@@ -607,8 +620,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Limpeza da tabela temporária</h4>
-          <p>Antes de iniciar a carga, a tabela de staging é limpa para garantir que não haja duplicidade ou dados residuais de execuções anteriores.</p>
+          <h4 data-i18n="s2_step1_title">Limpeza da tabela temporária</h4>
+          <p data-i18n="s2_step1_text">Antes de iniciar a carga, a tabela de staging é limpa para garantir que não haja duplicidade ou dados residuais de execuções anteriores.</p>
         </div>
       </div>
       <div class="process-step">
@@ -617,8 +630,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Leitura da origem</h4>
-          <p>Os dados são lidos, validados e seus registros carregados na tabela destino do banco de dados, incluindo dados de clientes e operações do dia anterior.</p>
+          <h4 data-i18n="s2_step2_title">Leitura da origem</h4>
+          <p data-i18n="s2_step2_text">Os dados são lidos, validados e seus registros carregados na tabela destino do banco de dados, incluindo dados de clientes e operações do dia anterior.</p>
         </div>
       </div>
       <div class="process-step">
@@ -627,8 +640,8 @@
           <div class="step-line"></div>
         </div>
         <div class="step-content">
-          <h4>Execução da Procedure de atualização</h4>
-          <p>Uma procedure SQL é disparada para consolidar e atualizar as tabelas relacionadas a clientes e operações com os dados recém-carregados.</p>
+          <h4 data-i18n="s2_step3_title">Execução da Procedure de atualização</h4>
+          <p data-i18n="s2_step3_text">Uma procedure SQL é disparada para consolidar e atualizar as tabelas relacionadas a clientes e operações com os dados recém-carregados.</p>
         </div>
       </div>
       <div class="process-step">
@@ -636,8 +649,8 @@
           <div class="step-num">4</div>
         </div>
         <div class="step-content">
-          <h4>Tabelas disponíveis para análise</h4>
-          <p>As tabelas de clientes e operações estão atualizadas e prontas para alimentar as regras de detecção e os relatórios analíticos.</p>
+          <h4 data-i18n="s2_step4_title">Tabelas disponíveis para análise</h4>
+          <p data-i18n="s2_step4_text">As tabelas de clientes e operações estão atualizadas e prontas para alimentar as regras de detecção e os relatórios analíticos.</p>
         </div>
       </div>
     </div>
@@ -651,26 +664,26 @@
       <span class="eyebrow-num">03</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">Execução de Regras de Detecção</h2>
-    <p class="section-lead">
+    <h2 class="section-title" data-i18n="s3_title">Execução de Regras de Detecção</h2>
+    <p class="section-lead" data-i18n="s3_lead">
       Com os dados carregados, o motor de regras entra em ação. A primeira regra avalia movimentações de valores acima de um limiar definido pelo Compliance.
     </p>
 
     <div class="card-grid cols-2" style="margin-top:40px;">
       <div class="card">
         <div class="card-icon red">🚨</div>
-        <h3>Regra: Movimentações de Altos Valores</h3>
-        <p>Identifica transações com valor igual ou superior ao <strong>Parâmetro01</strong> — definido pela área de Compliance. Todas as movimentações no período analisado são verificadas automaticamente.</p>
+        <h3 data-i18n="s3_card1_title">Regra: Movimentações de Altos Valores</h3>
+        <p><span data-i18n="s3_card1_text_a">Identifica transações com valor igual ou superior ao </span><strong data-i18n="s3_card1_param">Parâmetro01</strong><span data-i18n="s3_card1_text_b"> — definido pela área de Compliance. Todas as movimentações no período analisado são verificadas automaticamente.</span></p>
       </div>
       <div class="card">
         <div class="card-icon amber">📂</div>
-        <h3>Segregação dos resultados</h3>
-        <p>Após a análise, as movimentações que acionam a regra são separadas em tabelas dedicadas, criando uma fila de trabalho para verificação pelas áreas responsáveis.</p>
+        <h3 data-i18n="s3_card2_title">Segregação dos resultados</h3>
+        <p data-i18n="s3_card2_text">Após a análise, as movimentações que acionam a regra são separadas em tabelas dedicadas, criando uma fila de trabalho para verificação pelas áreas responsáveis.</p>
       </div>
     </div>
 
     <div class="callout success">
-      <p><strong>Resultado desta etapa:</strong> as operações suspeitas ficam isoladas em tabelas independentes, prontas para revisão pelo time de Compliance — sem misturar dados limpos com alertas.</p>
+      <p><strong data-i18n="s3_callout_label">Resultado desta etapa:</strong> <span data-i18n="s3_callout_text">as operações suspeitas ficam isoladas em tabelas independentes, prontas para revisão pelo time de Compliance — sem misturar dados limpos com alertas.</span></p>
     </div>
   </div>
 </section>
@@ -682,14 +695,14 @@
       <span class="eyebrow-num">04</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">Consultas e Análises com SQL + Python</h2>
-    <p class="section-lead">
+    <h2 class="section-title" data-i18n="s4_title">Consultas e Análises com SQL + Python</h2>
+    <p class="section-lead" data-i18n="s4_lead">
       A análise aprofundada combina a precisão do SQL com a expressividade do Python para transformar dados brutos em insights acionáveis.
     </p>
 
     <!-- Sub: conexão -->
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Conexão com SQL Server via Python</h3>
-    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:16px;">Usando a biblioteca <code style="background:rgba(255,255,255,0.08);padding:2px 7px;border-radius:4px;font-size:12px;color:var(--ink)">pymssql</code>, Python se conecta diretamente ao banco para executar queries e retornar DataFrames prontos para análise.</p>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;" data-i18n="s4_sub1_title">Conexão com SQL Server via Python</h3>
+    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:16px;"><span data-i18n="s4_sub1_text_a">Usando a biblioteca </span><code style="background:rgba(255,255,255,0.08);padding:2px 7px;border-radius:4px;font-size:12px;color:var(--ink)">pymssql</code><span data-i18n="s4_sub1_text_b">, Python se conecta diretamente ao banco para executar queries e retornar DataFrames prontos para análise.</span></p>
 
     <div class="code-block">
       <span class="code-label">Python · SQL Server Connection</span>
@@ -712,47 +725,47 @@ conexao.<span class="fn">close</span>()</pre>
     </div>
 
     <!-- Sub: quantidade de alertas -->
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Quantidade de alertas gerados</h3>
-    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;">Em <strong>31/07/2020</strong>, a execução da regra de alto valor gerou <strong>95 alertas</strong> para revisão pelo Compliance.</p>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;" data-i18n="s4_sub2_title">Quantidade de alertas gerados</h3>
+    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;"><span data-i18n="s4_sub2_text_a">Em </span><strong data-i18n="s4_sub2_date">31/07/2020</strong><span data-i18n="s4_sub2_text_b">, a execução da regra de alto valor gerou </span><strong data-i18n="s4_sub2_num">95 alertas</strong><span data-i18n="s4_sub2_text_c"> para revisão pelo Compliance.</span></p>
 
     <div class="data-table-wrap">
-      <div class="data-table-header">Resultado da Query · tgr_alertas</div>
+      <div class="data-table-header" data-i18n="s4_table1_header">Resultado da Query · tgr_alertas</div>
       <table class="data-table">
-        <thead><tr><th>Métrica</th><th>Valor</th><th>Data referência</th><th>Status</th></tr></thead>
+        <thead><tr><th data-i18n="th_metrica">Métrica</th><th data-i18n="th_valor">Valor</th><th data-i18n="th_data_ref">Data referência</th><th data-i18n="th_status">Status</th></tr></thead>
         <tbody>
           <tr>
-            <td>Total de alertas</td>
+            <td data-i18n="td_total_alertas">Total de alertas</td>
             <td><strong>95</strong></td>
             <td>2020-07-31</td>
-            <td><span class="badge badge-high">Para revisão</span></td>
+            <td><span class="badge badge-high" data-i18n="badge_para_revisao">Para revisão</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <!-- Sub: clientes com mais alertas -->
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;">Clientes com maior incidência de alertas</h3>
-    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;">Os 15 clientes com mais alertas foram identificados e ranqueados para priorização no processo de verificação.</p>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin:40px 0 16px;" data-i18n="s4_sub3_title">Clientes com maior incidência de alertas</h3>
+    <p style="color:var(--ink-mid);font-size:0.9rem;font-weight:300;margin-bottom:20px;" data-i18n="s4_sub3_text">Os 15 clientes com mais alertas foram identificados e ranqueados para priorização no processo de verificação.</p>
 
     <div class="data-table-wrap">
-      <div class="data-table-header">Top 15 Clientes · Alertas em 31/07/2020</div>
+      <div class="data-table-header" data-i18n="s4_table2_header">Top 15 Clientes · Alertas em 31/07/2020</div>
       <table class="data-table">
-        <thead><tr><th>#</th><th>Cód. Cliente</th><th>Alertas</th><th>Prioridade</th></tr></thead>
+        <thead><tr><th>#</th><th data-i18n="th_cod_cliente">Cód. Cliente</th><th data-i18n="th_alertas">Alertas</th><th data-i18n="th_prioridade">Prioridade</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>196592</td><td>9</td><td><span class="badge badge-high">Alta</span></td></tr>
-          <tr><td>2</td><td>207703</td><td>9</td><td><span class="badge badge-high">Alta</span></td></tr>
-          <tr><td>3</td><td>182151</td><td>7</td><td><span class="badge badge-high">Alta</span></td></tr>
-          <tr><td>4</td><td>143577</td><td>5</td><td><span class="badge badge-med">Média</span></td></tr>
-          <tr><td>5</td><td>22339</td><td>4</td><td><span class="badge badge-med">Média</span></td></tr>
-          <tr><td>6</td><td>846017</td><td>4</td><td><span class="badge badge-med">Média</span></td></tr>
-          <tr><td>7</td><td>865396</td><td>4</td><td><span class="badge badge-med">Média</span></td></tr>
-          <tr><td>8–15</td><td>Demais clientes</td><td>1–3</td><td><span class="badge badge-low">Normal</span></td></tr>
+          <tr><td>1</td><td>196592</td><td>9</td><td><span class="badge badge-high" data-i18n="badge_alta">Alta</span></td></tr>
+          <tr><td>2</td><td>207703</td><td>9</td><td><span class="badge badge-high" data-i18n="badge_alta">Alta</span></td></tr>
+          <tr><td>3</td><td>182151</td><td>7</td><td><span class="badge badge-high" data-i18n="badge_alta">Alta</span></td></tr>
+          <tr><td>4</td><td>143577</td><td>5</td><td><span class="badge badge-med" data-i18n="badge_media">Média</span></td></tr>
+          <tr><td>5</td><td>22339</td><td>4</td><td><span class="badge badge-med" data-i18n="badge_media">Média</span></td></tr>
+          <tr><td>6</td><td>846017</td><td>4</td><td><span class="badge badge-med" data-i18n="badge_media">Média</span></td></tr>
+          <tr><td>7</td><td>865396</td><td>4</td><td><span class="badge badge-med" data-i18n="badge_media">Média</span></td></tr>
+          <tr><td>8–15</td><td data-i18n="td_demais_clientes">Demais clientes</td><td>1–3</td><td><span class="badge badge-low" data-i18n="badge_normal">Normal</span></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout warning">
-      <p><strong>Insight:</strong> a maior concentração de alertas por cliente está entre 3 e 4 ocorrências. Clientes com 7 ou mais alertas devem ser investigados prioritariamente pelo time de Compliance.</p>
+      <p><strong data-i18n="s4_callout_label">Insight:</strong> <span data-i18n="s4_callout_text">a maior concentração de alertas por cliente está entre 3 e 4 ocorrências. Clientes com 7 ou mais alertas devem ser investigados prioritariamente pelo time de Compliance.</span></p>
     </div>
   </div>
 </section>
@@ -764,32 +777,32 @@ conexao.<span class="fn">close</span>()</pre>
       <span class="eyebrow-num">05</span>
       <div class="eyebrow-line"></div>
     </div>
-    <h2 class="section-title">Alertas e movimentações por produto</h2>
-    <p class="section-lead">
+    <h2 class="section-title" data-i18n="s5_title">Alertas e movimentações por produto</h2>
+    <p class="section-lead" data-i18n="s5_lead">
       A análise de correlação entre o volume de movimentações e a quantidade de alertas revela quais produtos financeiros concentram maior risco.
     </p>
 
     <!-- Alertas por produto -->
     <div class="chart-card">
-      <div class="chart-title">Alertas por produto · Junho/2020</div>
+      <div class="chart-title" data-i18n="s5_chart1_title">Alertas por produto · Junho/2020</div>
       <div class="bar-chart">
         <div class="bar-row">
-          <span class="bar-label">Corretora</span>
+          <span class="bar-label" data-i18n="prod_corretora">Corretora</span>
           <div class="bar-track"><div class="bar-fill navy" style="width:100%"></div></div>
           <span class="bar-val">4.470</span>
         </div>
         <div class="bar-row">
-          <span class="bar-label">Conta Corrente</span>
+          <span class="bar-label" data-i18n="prod_conta_corrente">Conta Corrente</span>
           <div class="bar-track"><div class="bar-fill navy" style="width:49.8%"></div></div>
           <span class="bar-val">2.228</span>
         </div>
         <div class="bar-row">
-          <span class="bar-label">Empréstimos</span>
+          <span class="bar-label" data-i18n="prod_emprestimos">Empréstimos</span>
           <div class="bar-track"><div class="bar-fill navy" style="width:10.7%"></div></div>
           <span class="bar-val">477</span>
         </div>
         <div class="bar-row">
-          <span class="bar-label">Fundos</span>
+          <span class="bar-label" data-i18n="prod_fundos">Fundos</span>
           <div class="bar-track"><div class="bar-fill navy" style="width:6.2%"></div></div>
           <span class="bar-val">277</span>
         </div>
@@ -803,25 +816,25 @@ conexao.<span class="fn">close</span>()</pre>
 
     <!-- Movimentações por produto -->
     <div class="chart-card">
-      <div class="chart-title">Volume de movimentações por produto · Junho/2020</div>
+      <div class="chart-title" data-i18n="s5_chart2_title">Volume de movimentações por produto · Junho/2020</div>
       <div class="bar-chart">
         <div class="bar-row">
-          <span class="bar-label">Conta Corrente</span>
+          <span class="bar-label" data-i18n="prod_conta_corrente">Conta Corrente</span>
           <div class="bar-track"><div class="bar-fill teal" style="width:100%"></div></div>
           <span class="bar-val">71.103</span>
         </div>
         <div class="bar-row">
-          <span class="bar-label">Corretora</span>
+          <span class="bar-label" data-i18n="prod_corretora">Corretora</span>
           <div class="bar-track"><div class="bar-fill teal" style="width:5.8%"></div></div>
           <span class="bar-val">4.129</span>
         </div>
         <div class="bar-row">
-          <span class="bar-label">Empréstimos</span>
+          <span class="bar-label" data-i18n="prod_emprestimos">Empréstimos</span>
           <div class="bar-track"><div class="bar-fill teal" style="width:1.5%"></div></div>
           <span class="bar-val">1.096</span>
         </div>
         <div class="bar-row">
-          <span class="bar-label">Fundos</span>
+          <span class="bar-label" data-i18n="prod_fundos">Fundos</span>
           <div class="bar-track"><div class="bar-fill teal" style="width:1.3%"></div></div>
           <span class="bar-val">941</span>
         </div>
@@ -834,46 +847,46 @@ conexao.<span class="fn">close</span>()</pre>
     </div>
 
     <div class="callout success">
-      <p><strong>Correlação importante:</strong> embora Conta Corrente seja o produto com maior volume de movimentações (71 mil), a Corretora concentra proporcionalmente mais alertas. Isso sugere que operações de corretagem merecem atenção especial nas regras de detecção.</p>
+      <p><strong data-i18n="s5_callout_label">Correlação importante:</strong> <span data-i18n="s5_callout_text">embora Conta Corrente seja o produto com maior volume de movimentações (71 mil), a Corretora concentra proporcionalmente mais alertas. Isso sugere que operações de corretagem merecem atenção especial nas regras de detecção.</span></p>
     </div>
 
     <!-- Conclusão -->
     <div class="conclusion-box">
-      <h2>Visão integrada do projeto</h2>
-      <p>
+      <h2 data-i18n="conclusion_title">Visão integrada do projeto</h2>
+      <p data-i18n="conclusion_text">
         Este projeto demonstra como a integração de ETL/ELT (implementada via SSIS e Bulk Insert), Stored Procedures para consolidação dos dados, regras de negócio baseadas em Compliance e análises em SQL + Python cria um pipeline robusto de prevenção à lavagem de dinheiro — do dado bruto à decisão fundamentada.
       </p>
       <div style="display:flex;gap:32px;margin-top:36px;flex-wrap:wrap;">
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">D-1</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Ciclo de dados</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="conclusion_stat1_label">Ciclo de dados</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">SSIS</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Motor ETL/ELT usado aqui</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="conclusion_stat2_label">Motor ETL/ELT usado aqui</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">Bulk Insert</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Carga de alto volume</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="conclusion_stat3_label">Carga de alto volume</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">SQL</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Stored Procedures</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="conclusion_stat4_label">Stored Procedures</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">Python</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Análise & Viz</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="conclusion_stat5_label">Análise & Viz</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;">PLD/AML</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;">Objetivo final</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="conclusion_stat6_label">Objetivo final</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
+<footer data-i18n="footer_text">
   Projeto de demonstração · Dados fictícios para fins educacionais · Rastreamento e Prevenção à Lavagem de Dinheiro
 </footer>
 
@@ -892,5 +905,6 @@ conexao.<span class="fn">close</span>()</pre>
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => obs.observe(s));
 </script>
+<script src="i18n-storytelling.js"></script>
 </body>
 </html>
