@@ -42,8 +42,14 @@
   nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
   .logo{ font-family: var(--font-display); font-weight:700; font-size:1.05rem; letter-spacing:0.02em; }
   .logo span{ color: var(--teal); }
-  .navlinks{ display:flex; gap:32px; font-size:0.88rem; color: var(--text-muted); font-family: var(--font-mono); }
+  .navlinks{ display:flex; align-items:center; gap:32px; font-size:0.88rem; color: var(--text-muted); font-family: var(--font-mono); }
   .navlinks a:hover{ color: var(--teal); }
+  #lang-toggle{
+    font-family: var(--font-mono); font-size:0.78rem; color: var(--text);
+    background:transparent; border:1px solid var(--line); border-radius:2px;
+    padding:6px 12px; cursor:pointer; letter-spacing:0.04em; transition: all .2s ease;
+  }
+  #lang-toggle:hover{ border-color: var(--teal); color: var(--teal); }
 
   /* HERO */
   .hero{ padding-top: 120px; padding-bottom: 120px; overflow:hidden; background: radial-gradient(ellipse 620px 420px at 10% 15%, rgba(226,127,160,0.07), transparent 70%); }
@@ -140,7 +146,7 @@
   .stat-row{ display:flex; gap:40px; margin-top:8px; }
   .stat{ }
   .stat .val{ font-family: var(--font-display); font-size:2.2rem; font-weight:700; color: var(--teal); }
-  .stat .lbl{ font-family: var(--font-mono); font-size:0.72rem; color: var(--text-muted); text-transform:uppercase; margin-top:4px; 
+  .stat .lbl{ font-family: var(--font-mono); font-size:0.72rem; color: var(--text-muted); text-transform:uppercase; margin-top:4px; }
   .about { background: var(--bg-panel-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
 
@@ -159,10 +165,11 @@
   <div class="wrap">
     <div class="logo">joyce<span>.</span>data</div>
     <div class="navlinks">
-      <a href="#stack">Stack</a>
-      <a href="#cases">Cases</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+      <a href="#stack" data-i18n="nav_stack">Stack</a>
+      <a href="#cases" data-i18n="nav_cases">Cases</a>
+      <a href="#sobre" data-i18n="nav_sobre">Sobre</a>
+      <a href="#contato" data-i18n="nav_contato">Contato</a>
+      <button id="lang-toggle" aria-label="Switch language">EN</button>
     </div>
   </div>
 </nav>
@@ -182,12 +189,12 @@
       <text class="node-label" x="182" y="285">transform</text>
       <text class="node-label" x="352" y="80">insight</text>
     </svg>
-    <div class="eyebrow">Engenharia de Dados &amp; IA</div>
-    <h1>De dado bruto a decisão: pipelines e sistemas de <span class="accent">IA que resolvem problemas reais</span></h1>
-    <p class="hero-sub">Especialista em dados com raízes em QA — o que significa que, para mim, uma solução só está pronta quando é testada, validada e documentada. Veja abaixo os problemas que já resolvi.</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Engenharia de Dados &amp; IA</div>
+    <h1><span data-i18n="hero_title_main">De dado bruto a decisão: pipelines e sistemas de </span><span class="accent" data-i18n="hero_title_accent">IA que resolvem problemas reais</span></h1>
+    <p class="hero-sub" data-i18n="hero_subtitle">Engenheira de Dados vinda do QA. Gosto de testar, validar e documentar o que construo — não porque acerto sempre, mas porque isso ajuda o time inteiro a confiar no que chega até eles. Veja abaixo os problemas que já ajudei a resolver.</p>
     <div class="hero-cta">
-      <a href="#cases" class="btn btn-primary">Ver cases de solução →</a>
-      <a href="#contato" class="btn btn-ghost">Entrar em contato</a>
+      <a href="#cases" class="btn btn-primary" data-i18n="hero_cta_cases">Ver cases de solução →</a>
+      <a href="#contato" class="btn btn-ghost" data-i18n="hero_cta_contato">Entrar em contato</a>
     </div>
   </div>
 </section>
@@ -195,30 +202,30 @@
 <section id="stack">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Trilha técnica</div>
-      <div class="section-title">Stack por <em>domínio</em></div>
+      <div class="section-eyebrow" data-i18n="stack_kicker">Trilha técnica</div>
+      <div class="section-title"><span data-i18n="stack_title_prefix">Stack por </span><em data-i18n="stack_dominio">domínio</em></div>
     </div>
     <div class="stack-grid">
       <div class="stack-col eng">
-        <h3>Engenharia de Dados</h3>
+        <h3 data-i18n="stack_dados_title">Engenharia de Dados</h3>
         <div class="tool-row"><span class="tool-dot"></span>SQL Server</div>
         <div class="tool-row"><span class="tool-dot"></span>ETL / SSIS</div>
         <div class="tool-row"><span class="tool-dot"></span>Stored Procedures</div>
         <div class="tool-row"><span class="tool-dot"></span>Python / Pandas / NumPy</div>
       </div>
       <div class="stack-col ia">
-        <h3>IA &amp; Automação</h3>
+        <h3 data-i18n="stack_ia_title">IA &amp; Automação</h3>
         <div class="tool-row"><span class="tool-dot"></span>Claude AI</div>
         <div class="tool-row"><span class="tool-dot"></span>Gemini</div>
         <div class="tool-row"><span class="tool-dot"></span>.NET</div>
-        <div class="tool-row"><span class="tool-dot"></span>Prompt engineering aplicado</div>
+        <div class="tool-row"><span class="tool-dot"></span><span data-i18n="stack_ia_item4">Prompt engineering aplicado</span></div>
       </div>
       <div class="stack-col bi">
-        <h3>BI &amp; Análise</h3>
+        <h3 data-i18n="stack_bi_title">BI &amp; Análise</h3>
         <div class="tool-row"><span class="tool-dot"></span>Power BI</div>
         <div class="tool-row"><span class="tool-dot"></span>Matplotlib / Seaborn</div>
         <div class="tool-row"><span class="tool-dot"></span>Jupyter</div>
-        <div class="tool-row"><span class="tool-dot"></span>Storytelling de dados</div>
+        <div class="tool-row"><span class="tool-dot"></span><span data-i18n="stack_bi_item4">Storytelling de dados</span></div>
       </div>
     </div>
   </div>
@@ -227,53 +234,53 @@
 <section class="cases" id="cases">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Portfólio</div>
-      <div class="section-title">Problemas reais, <em>soluções entregues</em></div>
+      <div class="section-eyebrow" data-i18n="cases_kicker">Portfólio</div>
+      <div class="section-title"><span data-i18n="cases_title_prefix">Problemas reais, </span><em data-i18n="cases_title_em">soluções entregues</em></div>
     </div>
     <div class="case-list">
 
       <div class="case-card">
         <div class="case-index"><span class="n">01</span>ETL/ELT</div>
         <div>
-          <span class="case-tag">Engenharia de Dados</span>
-          <h4>Pipelines de ingestão sob medida: ETL e ELT conforme o cenário do cliente</h4>
-          <div class="case-block"><b>Problema:</b> <span>cada ambiente de cliente impõe restrições diferentes de acesso, volume e infraestrutura — nem sempre é possível, ou eficiente, usar a mesma abordagem de ingestão em todos os projetos.</span></div>
-          <div class="case-block"><b>Solução:</b> <span>pipelines de ETL e ELT com a técnica mais adequada a cada contexto — pacotes SSIS para orquestração em SQL Server, scripts Python para ingestões customizadas, Bulk Insert para cargas de alto volume, leitura direta de views na base do cliente, leitura direta de volumes na AWS e DAGs no Airflow para orquestração e agendamento de pipelines mais complexos.</span></div>
-          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#etl">Ver etapa completa →</a>
+          <span class="case-tag" data-i18n="case1_tag">Engenharia de Dados</span>
+          <h4 data-i18n="case1_title">Pipelines de ingestão sob medida: ETL e ELT conforme o cenário do cliente</h4>
+          <div class="case-block"><b data-i18n="case1_problem_label">Problema:</b> <span data-i18n="case1_problem">cada ambiente de cliente impõe restrições diferentes de acesso, volume e infraestrutura — nem sempre é possível, ou eficiente, usar a mesma abordagem de ingestão em todos os projetos.</span></div>
+          <div class="case-block"><b data-i18n="case1_solution_label">Solução:</b> <span data-i18n="case1_solution">pipelines de ETL e ELT com a técnica mais adequada a cada contexto — pacotes SSIS para orquestração em SQL Server, scripts Python para ingestões customizadas, Bulk Insert para cargas de alto volume, leitura direta de views na base do cliente, leitura direta de volumes na AWS e DAGs no Airflow para orquestração e agendamento de pipelines mais complexos.</span></div>
+          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#etl" data-i18n="case1_link">Ver etapa completa →</a>
         </div>
         <div class="metrics">
-          <div class="metric"><div class="val">6</div><div class="lbl">formas de implementação</div></div>
-          <div class="metric"><div class="val">2</div><div class="lbl">abordagens: ETL e ELT</div></div>
+          <div class="metric"><div class="val">6</div><div class="lbl" data-i18n="case1_stat1_label">formas de implementação</div></div>
+          <div class="metric"><div class="val">2</div><div class="lbl" data-i18n="case1_stat2_label">abordagens: ETL e ELT</div></div>
         </div>
       </div>
 
       <div class="case-card">
         <div class="case-index"><span class="n">02</span>REG</div>
         <div>
-          <span class="case-tag">Engenharia de Dados</span>
-          <h4>Motor de regras de detecção de transações suspeitas</h4>
-          <div class="case-block"><b>Problema:</b> <span>verificar manualmente cada movimentação contra o limiar de Compliance não escala com o volume diário de operações.</span></div>
-          <div class="case-block"><b>Solução:</b> <span>regra automatizada que sinaliza transações acima do parâmetro definido e segrega os resultados em tabela própria, criando fila de trabalho para o time de Compliance.</span></div>
-          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#regras">Ver etapa completa →</a>
+          <span class="case-tag" data-i18n="case2_tag">Engenharia de Dados</span>
+          <h4 data-i18n="case2_title">Motor de regras de detecção de transações suspeitas</h4>
+          <div class="case-block"><b data-i18n="case2_problem_label">Problema:</b> <span data-i18n="case2_problem">verificar manualmente cada movimentação contra o limiar de Compliance não escala com o volume diário de operações.</span></div>
+          <div class="case-block"><b data-i18n="case2_solution_label">Solução:</b> <span data-i18n="case2_solution">regra automatizada que sinaliza transações acima do parâmetro definido e segrega os resultados em tabela própria, criando fila de trabalho para o time de Compliance.</span></div>
+          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#regras" data-i18n="case2_link">Ver etapa completa →</a>
         </div>
         <div class="metrics">
-          <div class="metric"><div class="val">95</div><div class="lbl">alertas gerados no dia</div></div>
-          <div class="metric"><div class="val">5</div><div class="lbl">produtos monitorados</div></div>
+          <div class="metric"><div class="val">95</div><div class="lbl" data-i18n="case2_stat1_label">alertas gerados no dia</div></div>
+          <div class="metric"><div class="val">5</div><div class="lbl" data-i18n="case2_stat2_label">produtos monitorados</div></div>
         </div>
       </div>
 
       <div class="case-card">
         <div class="case-index"><span class="n">03</span>SQL</div>
         <div>
-          <span class="case-tag">Análise &amp; IA</span>
-          <h4>Priorização de alertas com SQL + Python</h4>
-          <div class="case-block"><b>Problema:</b> <span>com dezenas de alertas gerados por dia, o Compliance precisa saber por onde começar a investigação.</span></div>
-          <div class="case-block"><b>Solução:</b> <span>conexão Python↔SQL Server (pymssql) para consultar alertas, ranquear os clientes com maior incidência e cruzar volume de movimentação com risco por produto.</span></div>
-          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#analise">Ver etapa completa →</a>
+          <span class="case-tag" data-i18n="case3_tag">Análise &amp; IA</span>
+          <h4 data-i18n="case3_title">Priorização de alertas com SQL + Python</h4>
+          <div class="case-block"><b data-i18n="case3_problem_label">Problema:</b> <span data-i18n="case3_problem">com dezenas de alertas gerados por dia, o Compliance precisa saber por onde começar a investigação.</span></div>
+          <div class="case-block"><b data-i18n="case3_solution_label">Solução:</b> <span data-i18n="case3_solution">conexão Python↔SQL Server (pymssql) para consultar alertas, ranquear os clientes com maior incidência e cruzar volume de movimentação com risco por produto.</span></div>
+          <a class="case-link" href="https://joycequoos.github.io/storytelling_pld_1.html#analise" data-i18n="case3_link">Ver etapa completa →</a>
         </div>
         <div class="metrics">
-          <div class="metric"><div class="val">15</div><div class="lbl">clientes priorizados</div></div>
-          <div class="metric"><div class="val">Corretora</div><div class="lbl">produto de maior risco relativo</div></div>
+          <div class="metric"><div class="val">15</div><div class="lbl" data-i18n="case3_stat1_label">clientes priorizados</div></div>
+          <div class="metric"><div class="val">Corretora</div><div class="lbl" data-i18n="case3_stat2_label">produto de maior risco relativo</div></div>
         </div>
       </div>
 
@@ -292,16 +299,16 @@
 <section class="about" id="sobre">
   <div class="wrap about-grid">
     <div>
-      <div class="section-eyebrow">Sobre</div>
+      <div class="section-eyebrow" data-i18n="sobre_kicker">Sobre</div>
       <div></div>
-      <p>Minha jornada começou em 2005, no suporte técnico, onde aprendi a ouvir o usuário e resolver problemas na raiz (e que "reiniciar a máquina" nem sempre é a solução).</p>
-      <p>A passagem por QA moldou minha visão analítica e crítica. Desde 2020, aplico essa bagagem como Especialista em Dados: trago a mentalidade de testes, validação e documentação para garantir que os dados não sejam apenas visuais, mas confiáveis para a tomada de decisão.</p>
+      <p data-i18n="sobre_p1">Minha jornada começou em 2005, no suporte técnico, onde aprendi a ouvir o usuário e resolver problemas na raiz (e que "reiniciar a máquina" nem sempre é a solução).</p>
+      <p data-i18n="sobre_p2">A passagem por QA moldou minha visão analítica e crítica. Desde 2020, aplico essa bagagem como Especialista em Dados: trago a mentalidade de testes, validação e documentação para garantir que os dados não sejam apenas visuais, mas confiáveis para a tomada de decisão.</p>
     </div>
     <div>
       <div class="stat-row">
-        <div class="stat"><div class="val">6+</div><div class="lbl">projetos</div></div>
-        <div class="stat"><div class="val">3+</div><div class="lbl">domínios técnicos</div></div>
-        <div class="stat"><div class="val">∞</div><div class="lbl">curiosidade</div></div>
+        <div class="stat"><div class="val">6+</div><div class="lbl" data-i18n="sobre_stat1_label">projetos</div></div>
+        <div class="stat"><div class="val">3+</div><div class="lbl" data-i18n="sobre_stat2_label">domínios técnicos</div></div>
+        <div class="stat"><div class="val">∞</div><div class="lbl" data-i18n="sobre_stat3_label">curiosidade</div></div>
       </div>
     </div>
   </div>
@@ -309,16 +316,18 @@
 
 <section class="contact" id="contato">
   <div class="wrap">
-    <h2>Vamos conversar?</h2>
-    <p>Colaborações e novas conexões em Engenharia de Dados e IA.</p>
+    <h2 data-i18n="contato_title">Vamos conversar?</h2>
+    <p data-i18n="contato_subtitle">Colaborações e novas conexões em Engenharia de Dados e IA.</p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/joycequoos/">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://github.com/joycequoos">GitHub</a>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/joycequoos/" data-i18n="contato_linkedin">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/joycequoos" data-i18n="contato_github">GitHub</a>
     </div>
   </div>
 </section>
 
-<footer>✦ joyce.data — pipelines e IA para problemas reais © 2026</footer>
+<footer data-i18n="footer_text">✦ joyce.data — pipelines e IA para problemas reais © 2026</footer>
+
+<script src="i18n.js"></script>
 
 </body>
 </html>
